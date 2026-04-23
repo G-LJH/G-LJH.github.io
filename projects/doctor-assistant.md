@@ -57,10 +57,10 @@ permalink: /projects/doctor-assistant/
 
 以下是部分医生的 AI 助手体验链接：
 
-- [医生A 智能助手](https://fastgpt.in/share?shareId=n4R4kq8RvOX4SlesYAiz24I6)
-- [医生B 智能助手](https://fastgpt.in/share?shareId=x5ubK2jTYEAiylqyyrnQ1xau)
-- [医生C 智能助手](https://fastgpt.in/share?shareId=ssPea0cfK8txAusg5iTKC5hN)
-- [医生D 智能助手](https://fastgpt.in/share?shareId=qwAd7BTXVFeg45cb5dVPkRV0)
+- [医生A 智能助手](http://114.55.140.84:3000/chat/share?shareId=n4R4kq8RvOX4SlesYAiz24I6)
+- [医生B 智能助手](http://114.55.140.84:3000/chat/share?shareId=x5ubK2jTYEAiylqyyrnQ1xau)
+- [医生C 智能助手](http://114.55.140.84:3000/chat/share?shareId=ssPea0cfK8txAusg5iTKC5hN)
+- [医生D 智能助手](http://114.55.140.84:3000/chat/share?shareId=qwAd7BTXVFeg45cb5dVPkRV0)
 
 ---
 

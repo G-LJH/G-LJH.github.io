@@ -8,7 +8,7 @@ permalink: /about/
 
 ## 👋 你好！
 
-我是**刘佳会**，杭州电子科技大学**智能科学与技术**专业 2027 届毕业生。
+我是**刘佳慧**，杭州电子科技大学**智能科学与技术**专业 2027 届毕业生。
 
 我的求职方向是 **AI Agent 工程师** 或 **AI产品经理**，专注于大语言模型与 Agent 技术的开发与应用。
 
@@ -22,16 +22,16 @@ permalink: /about/
 <!-- TODO: 持续补充中 -->
 
 ### 编程语言
-- Python、C++、JavaScript
+- Python(主要)、C
 
 ### AI / ML
-- PyTorch、TensorFlow、OpenCV、LLM
+- PyTorch、OpenCV、LLM 
 
 ### Agent 开发
-- LangChain、RAG、Prompt Engineering、Agent 框架
+- LangChain、LangGraph、MCP、RAG、Prompt Engineering、Context Engineering、Agent 框架、Milvus向量数据库
 
 ### 工具
-- Git、Linux、Docker、FastAPI
+- Git、Docker、Trea
 
 ## 📬 联系方式
 
