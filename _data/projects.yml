@@ -11,7 +11,7 @@
     - 知识库构建
     - API 集成
     - 企业微信
-  featured: true
+  featured: "true"
   order: 1
   url: /projects/doctor-assistant/
   github:
@@ -28,7 +28,7 @@
     - FastGPT
     - 多智能体架构
     - 自动化测试
-  featured: true
+  featured: "true"
   order: 2
   url: /projects/fastgpt-agent-tester/
   github: https://github.com/G-LJH/FastGPT-Agent-Tester

@@ -14,9 +14,7 @@ permalink: /projects/doctor-assistant/
 
 为多位不同专科医生定制开发的 AI 智能助手，通过 FastGPT 工作流实现 7×24 小时自动回复患者咨询。系统能够处理医学问答、挂号指引、购药引导等常见需求，并通过 API 接口集成到企业微信平台，实现自动化患者服务。
 
-<div style="text-align: center;">
-  <img src="../images/doctor-assistant-UI.png" alt="医生智能助手界面" style="width: 70%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-</div>
+<img src="../images/doctor-assistant-UI.png" alt="医生智能助手界面" width="70%">
 
 
 ### 核心技术栈
