@@ -1,0 +1,74 @@
+#
+# 刘佳会 - 个人简历网站
+# AI Agent 工程师 / AI产品经理
+#
+
+# 网站名称（显示在页眉中）
+name: 刘佳会
+
+# 简短的个人简介或描述（显示在页眉中）
+description: AI Agent 工程师 · 杭州电子科技大学 · 智能科学与技术
+
+# 头像或个人资料图片的 URL（使用你的 GitHub 头像）
+avatar: https://avatars.githubusercontent.com/G-LJH
+
+#
+# 以下配置项为可选项
+#
+
+# 为你输入的每个用户名在页脚添加图标
+footer-links:
+  dribbble:
+  email: 18045034451@189.cn
+  facebook:
+  flickr:
+  github: G-LJH
+  instagram:
+  linkedin:
+  pinterest:
+  rss: RSS
+  twitter:
+  stackoverflow:
+  youtube:
+  googleplus:
+  csdn: https://blog.csdn.net/qw1233w
+
+# 输入你的 Disqus 简称（不是用户名）以启用文章评论功能
+disqus:
+
+# 输入你的 Google Analytics 网站追踪代码
+google_analytics:
+
+# 你的网站 URL（用于 Sitemap.xml 和你的 RSS 订阅）
+url: https://G-LJH.github.io
+
+# 如果你将网站托管在 GitHub Pages 的项目仓库，则添加 baseurl
+baseurl: ""
+
+#
+# !! 以下所有配置项都不需要修改 !!
+#
+
+permalink: /:title/
+
+version: v1.2.0
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
+sass:
+  style: :expanded
+
+gems:
+  - jekyll-sitemap
+  - jekyll-feed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
