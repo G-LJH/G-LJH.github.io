@@ -14,29 +14,38 @@ permalink: /projects/doctor-assistant/
 
 为多位不同专科医生定制开发的 AI 智能助手，通过 FastGPT 工作流实现 7×24 小时自动回复患者咨询。系统能够处理医学问答、挂号指引、购药引导等常见需求，并通过 API 接口集成到企业微信平台，实现自动化患者服务。
 
-![医生智能助手界面](../images/doctor-assistant-UI.png)
+<div style="text-align: center;">
+  <img src="../images/doctor-assistant-UI.png" alt="医生智能助手界面" style="width: 70%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+</div>
 
 
 ### 核心技术栈
 
-| 架构层级 | 技术实现 |
-|---------|---------|
-| 工作流引擎 | FastGPT 可视化编排 |
-| 知识检索 | RAG 检索增强生成 |
-| 对话理解 | 意图识别 + 多轮对话管理 |
-| 知识库 | 医学文档向量化处理 |
-| 系统集成 | 企业微信 API 对接 |
+- **工作流引擎**：FastGPT 可视化编排
+- **知识检索**：RAG 检索增强生成
+- **对话理解**：意图识别 + 多轮对话管理
+- **知识库**：医学文档向量化处理
+- **系统集成**：企业微信 API 对接
 
 ---
 
 ## 🛠️ 我的工程实践（核心贡献）
 
-| 工作阶段 | 关键动作 | 交付成果 |
-| :------- | :------- | :------- |
-| **需求分析** | 深入专科科室调研，对接一线医生 | 梳理出独立的核心业务逻辑 |
-| **知识工程** | 数据清洗、Chunk 分块策略优化 | RAG 检索精度提升至 **90%** 以上 |
-| **工作流编排** | 设计 FastGPT 多分支条件节点 | 实现「医学/导诊/购药」多个功能 |
-| **接口开发** | 封装企业微信中转服务 | 解决 Markdown 渲染兼容|
+**需求分析**
+- 关键动作：深入专科科室调研，对接一线医生
+- 交付成果：梳理出独立的核心业务逻辑
+
+**知识工程**
+- 关键动作：数据清洗、Chunk 分块策略优化
+- 交付成果：RAG 检索精度提升至 **90%** 以上
+
+**工作流编排**
+- 关键动作：设计 FastGPT 多分支条件节点
+- 交付成果：实现「医学/导诊/购药」多个功能
+
+**接口开发**
+- 关键动作：封装企业微信中转服务
+- 交付成果：解决 Markdown 渲染兼容
 
 ---
 
@@ -69,12 +78,10 @@ permalink: /projects/doctor-assistant/
 
 以下是部分医生的 AI 助手体验链接：
 
-| 医生 | 体验链接 |
-|-----|---------|
-| 医生A | [点击体验](http://114.55.140.84:3000/chat/share?shareId=n4R4kq8RvOX4SlesYAiz24I6) |
-| 医生B | [点击体验](http://114.55.140.84:3000/chat/share?shareId=x5ubK2jTYEAiylqyyrnQ1xau) |
-| 医生C | [点击体验](http://114.55.140.84:3000/chat/share?shareId=ssPea0cfK8txAusg5iTKC5hN) |
-| 医生D | [点击体验](http://114.55.140.84:3000/chat/share?shareId=qwAd7BTXVFeg45cb5dVPkRV0) |
+- **医生A**：[点击体验](http://114.55.140.84:3000/chat/share?shareId=n4R4kq8RvOX4SlesYAiz24I6)
+- **医生B**：[点击体验](http://114.55.140.84:3000/chat/share?shareId=x5ubK2jTYEAiylqyyrnQ1xau)
+- **医生C**：[点击体验](http://114.55.140.84:3000/chat/share?shareId=ssPea0cfK8txAusg5iTKC5hN)
+- **医生D**：[点击体验](http://114.55.140.84:3000/chat/share?shareId=qwAd7BTXVFeg45cb5dVPkRV0)
 
 ---
 

@@ -18,6 +18,23 @@
   demo: http://114.55.140.84:3000/chat/share?shareId=n4R4kq8RvOX4SlesYAiz24I6
   article:
 
+- title: FastGPT Agent Tester
+  date: 2025
+  description: 专为 FastGPT 设计的自动化测评框架，通过"用户智能体"模拟真实对话，并由"裁判智能体"基于多维度指标进行量化打分，实现批量测试 → 智能评分 → 优化建议的自动化测评闭环。
+  technologies:
+    - Python
+    - AsyncIO
+    - LLM
+    - FastGPT
+    - 多智能体架构
+    - 自动化测试
+  featured: true
+  order: 2
+  url: /projects/fastgpt-agent-tester/
+  github: https://github.com/G-LJH/FastGPT-Agent-Tester
+  demo:
+  article:
+
 
 # ============================================================
 # 以下为未展示在首页的项目（featured: false），但仍会在项目页面显示
