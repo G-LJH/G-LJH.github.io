@@ -16,21 +16,11 @@ avatar: https://avatars.githubusercontent.com/G-LJH
 # 以下配置项为可选项
 #
 
-# 为你输入的每个用户名在页脚添加图标
+# 页脚社交链接（只保留你需要的）
 footer-links:
-  dribbble:
   email: 18045034451@189.cn
-  facebook:
-  flickr:
   github: G-LJH
-  instagram:
-  linkedin:
-  pinterest:
   rss: RSS
-  twitter:
-  stackoverflow:
-  youtube:
-  googleplus:
   csdn: https://blog.csdn.net/qw1233w
 
 # 输入你的 Disqus 简称（不是用户名）以启用文章评论功能
