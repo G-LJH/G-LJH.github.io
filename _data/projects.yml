@@ -18,36 +18,6 @@
   demo: http://114.55.140.84:3000/chat/share?shareId=n4R4kq8RvOX4SlesYAiz24I6
   article:
 
-- title: RAG 知识库检索系统
-  date: 2024
-  description: 基于 LangChain + 向量数据库的检索增强生成系统，支持私有文档问答与精准知识检索。
-  technologies:
-    - Python
-    - LangChain
-    - RAG
-    - Vector DB
-  featured: true
-  order: 2
-  url: /projects/rag-system/
-  github:
-  demo:
-  article: https://blog.csdn.net/qw1233w
-
-- title: 计算机视觉目标检测项目
-  date: 2024
-  description: 基于 PyTorch 的深度学习目标检测项目，使用 YOLO 系列算法实现实时物体识别。
-  technologies:
-    - Python
-    - PyTorch
-    - OpenCV
-    - YOLO
-  featured: true
-  order: 3
-  url: /projects/cv-project/
-  github: https://github.com/G-LJH
-  demo:
-  article: https://blog.csdn.net/qw1233w
-
 
 # ============================================================
 # 以下为未展示在首页的项目（featured: false），但仍会在项目页面显示
