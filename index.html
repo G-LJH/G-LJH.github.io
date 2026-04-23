@@ -3,274 +3,108 @@ layout: default
 title: 首页
 ---
 
-<style>
-  :root {
-    --bg-deep: #0a0f18; /* 深邃黑 */
-    --card-bg: rgba(15, 23, 42, 0.8); /* 半透明卡片 */
-    --accent-primary: #3b82f6; /* 科技蓝 */
-    --accent-secondary: #a855f7; /* 极客紫 */
-    --text-bright: #f8fafc;
-    --text-dim: #94a3b8;
-    --border-glow: rgba(59, 130, 246, 0.3);
-    --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: "Inter", "Readex Pro", -apple-system, sans-serif;
-    color: var(--text-bright);
-    background-color: var(--bg-deep);
-    /* 增加微弱的网格背景，营造蓝图感 */
-    background-image: 
-      linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
-    background-size: 30px 30px;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* 动态发光背景球 */
-  .blob {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(var(--accent-primary), transparent 70%);
-    filter: blur(80px);
-    opacity: 0.15;
-    z-index: 0;
-    pointer-events: none;
-    animation: move 20s infinite alternate;
-  }
-
-  @keyframes move {
-    from { transform: translate(-10%, -10%); }
-    to { transform: translate(20%, 20%); }
-  }
-
-  /* Hero 区域 */
-  .hero {
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 2rem;
-    position: relative;
-  }
-
-  .hero-content {
-    max-width: 900px;
-    text-align: center;
-    z-index: 1;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    font-weight: 800;
-    letter-spacing: -2px;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #fff 30%, var(--accent-primary) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  .hero-subtitle {
-    font-size: 1.4rem;
-    color: var(--accent-primary);
-    font-family: "JetBrains Mono", monospace;
-    margin-bottom: 2rem;
-    display: block;
-  }
-
-  .hero-desc {
-    color: var(--text-dim);
-    max-width: 600px;
-    margin: 0 auto 3rem;
-  }
-
-  /* 按钮优化 */
-  .btn-container {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-glass {
-    padding: 0.8rem 2rem;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
-    backdrop-filter: blur(5px);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .btn-glass:hover {
-    background: rgba(59, 130, 246, 0.1);
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
-    transform: translateY(-3px);
-  }
-
-  /* 技能模块 - 科技矩阵感 */
-  .section {
-    padding: 8rem 2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .section h2 {
-    font-size: 2rem;
-    margin-bottom: 4rem;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-  }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .skill-card {
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: var(--transition);
-  }
-
-  .skill-card:hover {
-    border-color: var(--accent-secondary);
-    background: rgba(168, 85, 247, 0.05);
-  }
-
-  .skill-card h3 {
-    color: var(--accent-primary);
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .tag {
-    font-size: 0.8rem;
-    padding: 4px 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 6px;
-    color: var(--text-dim);
-  }
-
-  /* 项目卡片 - 毛玻璃悬浮 */
-  .project-card {
-    background: var(--card-bg);
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .project-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.03));
-  }
-
-  .project-card:hover {
-    transform: scale(1.02);
-    border-color: var(--border-glow);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  }
-
-  @media (max-width: 768px) {
-    .hero h1 { font-size: 3rem; }
-    .section { padding: 4rem 1.5rem; }
-  }
-</style>
-
-<div class="blob"></div>
-
 <div class="hero">
   <div class="hero-content">
-    <span class="hero-subtitle">> Hello, AI World_</span>
-    <h1>我是刘佳慧</h1>
+    <h1>你好，我是刘佳慧 </h1>
+    <p class="hero-subtitle">AI Agent 工程师 / AI产品经理</p>
     <p class="hero-desc">
-      <strong>杭电 2027 届 · 智能科学与技术</strong><br>
-      专注于 AI Agent 构建、RAG 架构优化及大模型应用落地。
+      杭州电子科技大学 · 智能科学与技术专业 · 2027届<br>
+      专注于 AI Agent 开发与应用，探索大模型在真实场景中的落地。
     </p>
-    <div class="btn-container">
-      <a href="https://github.com/G-LJH" class="btn-glass" target="_blank">GitHub</a>
-      <a href="https://blog.csdn.net/qw1233w" class="btn-glass" target="_blank">CSDN</a>
-      <a href="mailto:18045034451@189.cn" class="btn-glass">Mail Me</a>
+    <div class="hero-links">
+      <a href="https://github.com/G-LJH" class="btn btn-outline" target="_blank">GitHub</a>
+      <a href="https://blog.csdn.net/qw1233w" class="btn btn-outline" target="_blank">CSDN</a>
+      <a href="mailto:18045034451@189.cn" class="btn btn-outline">📧 邮件</a>
     </div>
   </div>
 </div>
 
 <section class="section">
-  <h2>Skill Stack</h2>
+  <h2>🔥 核心技能</h2>
   <div class="skills-grid">
-    <div class="skill-card">
-      <h3>核心编程</h3>
-      <div class="skill-tags">
-        <span class="tag">Python</span><span class="tag">C++</span><span class="tag">FastAPI</span>
+    <div class="skill-category">
+      <h3>编程语言</h3>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">C++</span>
+        <span class="tag">JavaScript</span>
       </div>
     </div>
-    <div class="skill-card">
-      <h3>AI 智能体</h3>
-      <div class="skill-tags">
-        <span class="tag">LangChain</span><span class="tag">FastGPT</span><span class="tag">RAG</span><span class="tag">Prompt</span>
+    <div class="skill-category">
+      <h3>AI / ML</h3>
+      <div class="tags">
+        <span class="tag">PyTorch</span>
+        <span class="tag">TensorFlow</span>
+        <span class="tag">OpenCV</span>
+        <span class="tag">LLM</span>
       </div>
     </div>
-    <div class="skill-card">
-      <h3>工程化</h3>
-      <div class="skill-tags">
-        <span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">Git</span><span class="tag">WeCom API</span>
+    <div class="skill-category">
+      <h3>Agent 开发</h3>
+      <div class="tags">
+        <span class="tag">LangChain</span>
+        <span class="tag">RAG</span>
+        <span class="tag">Prompt Engineering</span>
+        <span class="tag">Agent 框架</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h3>工具 & 其他</h3>
+      <div class="tags">
+        <span class="tag">Git</span>
+        <span class="tag">Linux</span>
+        <span class="tag">Docker</span>
+        <span class="tag">FastAPI</span>
       </div>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <h2>Featured Project</h2>
-  <div style="max-width: 800px; margin: 0 auto;">
+  <h2>📌 精选项目</h2>
+  <p class="section-desc">以下是我近期的一些代表性项目，<a href="{{ site.baseurl }}/projects/">查看全部 →</a></p>
+
+  <div class="projects-grid">
     {% assign featured = site.data.projects | where: "featured", true | sort: "order" %}
-    {% for project in featured limit: 1 %}
-    <div class="project-card" style="min-height: 300px;">
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
-        <h3 style="font-size: 1.5rem; background: linear-gradient(135deg, #fff, var(--accent-primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">{{ project.title }}</h3>
-        <span style="font-size: 0.8rem; color: var(--accent-primary); font-family: monospace;">{{ project.date }}</span>
+    {% for project in featured limit: 3 %}
+    <a href="{{ site.baseurl }}{{ project.url }}" class="project-card">
+      <div class="card-header">
+        <h3>{{ project.title }}</h3>
+        <span class="card-date">{{ project.date }}</span>
       </div>
-      <p style="color: var(--text-dim); font-size: 1rem; margin-bottom: 2rem; line-height: 1.8;">{{ project.description }}</p>
-      <div class="skill-tags" style="margin-bottom: 2rem;">
+      <p class="card-desc">{{ project.description }}</p>
+      <div class="card-tags">
         {% for tech in project.technologies %}
-        <span class="tag" style="background: rgba(59, 130, 246, 0.15); color: var(--accent-primary); border: none; padding: 6px 14px;">{{ tech }}</span>
+        <span class="tag tag-tech">{{ tech }}</span>
         {% endfor %}
       </div>
-      <div style="display: flex; gap: 1.5rem; align-items: center;">
-        <a href="{{ site.baseurl }}{{ project.url }}" class="btn-glass" style="padding: 0.6rem 1.5rem;">查看详情 →</a>
+      <div class="card-links">
+        {% if project.github %}
+        <span class="card-link">📂 GitHub</span>
+        {% endif %}
         {% if project.demo %}
-        <a href="{{ project.demo }}" target="_blank" style="color: var(--accent-primary); font-size: 0.9rem;">🔗 在线体验</a>
+        <span class="card-link">🔗 Demo</span>
+        {% endif %}
+        {% if project.article %}
+        <span class="card-link">📝 文章</span>
         {% endif %}
       </div>
-    </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section">
+  <h2>📝 最近文章</h2>
+  <div class="posts">
+    {% for post in site.posts limit: 3 %}
+    <article class="post">
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">阅读更多 →</a>
+    </article>
     {% endfor %}
   </div>
 </section>
