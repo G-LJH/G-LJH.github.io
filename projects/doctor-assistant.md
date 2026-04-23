@@ -31,6 +31,10 @@ permalink: /projects/doctor-assistant/
 - ✅ 对接企业微信 API，实现消息自动回复
 - ✅ 测试调优，提升回答准确率与用户体验
 
+
+![FastGPT 工作流设计](../images/doctor-assistant-workflow.png)
+
+
 ## 项目亮点
 
 ### 1. 多专科定制化
