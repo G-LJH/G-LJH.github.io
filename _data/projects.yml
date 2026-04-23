@@ -1,49 +1,23 @@
 # 项目数据 - 在这里添加/编辑项目
 # 每个项目包含: title, date, description, technologies, featured(是否首页展示), order(排序), url, github, demo, article
 
-- title: AI Agent 框架（示例项目）
+- title: 医生智能助手（FastGPT 工作流）
   date: 2025
-  description: 一个基于大语言模型的智能 Agent 框架，支持多步推理、工具调用和对话管理。
+  description: 基于 FastGPT 为多位专科医生搭建的 AI 助手，7×24 小时自动回复患者咨询，集成企业微信实现自动化服务。
   technologies:
-    - Python
-    - LangChain
-    - LLM
+    - FastGPT
+    - RAG
+    - 意图识别
+    - 知识库构建
+    - API 集成
+    - 企业微信
   featured: true
   order: 1
-  url: /projects/agent-framework/
-  github: https://github.com/G-LJH/agent-framework
-  demo:
+  url: /projects/doctor-assistant/
+  github:
+  demo: https://fastgpt.in/share/n4R4kq8RvOX4SlesYAiz24I6
   article:
 
-- title: RAG 知识检索系统（示例项目）
-  date: 2025
-  description: 结合向量数据库与大模型的检索增强生成系统，支持文档问答和智能检索。
-  technologies:
-    - Python
-    - RAG
-    - Vector DB
-    - LangChain
-  featured: true
-  order: 2
-  url: /projects/rag-system/
-  github: https://github.com/G-LJH/rag-system
-  demo:
-  article: https://blog.csdn.net/qw1233w
-
-- title: 计算机视觉项目（示例项目）
-  date: 2024
-  description: 基于深度学习的图像识别/目标检测项目，使用 PyTorch 实现。
-  technologies:
-    - Python
-    - PyTorch
-    - OpenCV
-    - CNN
-  featured: true
-  order: 3
-  url: /projects/cv-project/
-  github: https://github.com/G-LJH/cv-project
-  demo:
-  article: https://blog.csdn.net/qw1233w
 
 # ============================================================
 # 以下为未展示在首页的项目（featured: false），但仍会在项目页面显示

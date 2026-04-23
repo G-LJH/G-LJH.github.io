@@ -1,72 +1,63 @@
-# 刘佳会 - 个人简历网站
+# 刘佳慧 (Jiahui Liu) - 个人简历及项目门户
 
 > 🌐 https://G-LJH.github.io
 
-## 网站结构
+这是我的个人门户网站源码仓库。该网站基于 Jekyll 构建，旨在展示我在人工智能、AI Agent 开发及工程实践领域的技术能力与项目经验。
 
-```
-├── index.html          ← 首页（个人简介 + 核心亮点）
-├── projects.md         ← 项目总览页
-├── blog.md             ← 博客列表页
-├── about.md            ← 关于我
-├── _data/
-│   └── projects.yml    ← 📝 在这里管理项目（增删改）
-├── projects/           ← 项目详情页
-│   ├── agent-framework.md
-│   ├── rag-system.md
-│   └── cv-project.md
-├── _posts/             ← 博客文章
-├── _config.yml         ← 网站配置
-└── style.scss          ← 样式
-```
-
-## 如何修改内容
-
-### 添加/编辑项目
-
-编辑 `_data/projects.yml`，每个项目的格式：
-
-```yaml
-- title: 项目名称
-  date: 2025
-  description: 简短描述
-  technologies:
-    - Python
-    - LangChain
-  featured: true       # 是否在首页展示
-  order: 1             # 排序（数字越小越靠前）
-  url: /projects/my-project/
-  github: https://github.com/...
-  demo: https://...
-  article: https://...
-```
-
-然后在 `projects/` 目录下创建对应的详情页。
-
-### 写博客文章
-
-在 `_posts/` 目录下创建文件，命名格式：`YYYY-MM-DD-标题.md`
-
-```markdown
----
-layout: post
-title: 文章标题
 ---
 
-正文内容...
-```
+## 🌐 站点访问
 
-### 更新个人信息
+**正式发布地址：** `https://G-LJH.github.io`
 
-- `_config.yml` → 姓名、描述、头像、链接
-- `about.md` → 详细介绍
+---
 
-## 部署到 GitHub
+## 🛠️ 技术架构与目录索引
 
-```bash
-git add .
-git commit -m "update site"
-git push origin main
-```
+本项目采用数据驱动的设计模式，通过分离内容（Markdown）与配置（YAML）来实现高效的项目管理。
 
-推送后 GitHub Pages 会自动构建，几分钟后可访问。
+### 核心目录结构
+
+| 路径 | 说明 |
+|------|------|
+| `_data/projects.yml` | **核心数据中枢**，集中管理所有项目的元数据（名称、技术栈、链接） |
+| `projects/` | 项目详情库，涵盖 **Agent 框架、RAG 系统、医疗 AI 助手**等技术文档 |
+| `_posts/` | 技术博客，记录工程复盘、算法实践及技术思考 |
+| `_config.yml` | 站点全局配置文件 |
+| `style.scss` | 自定义样式文件 |
+
+---
+
+## 🎯 核心能力
+
+我目前专注于以下技术领域：
+
+- **AI Agent 开发**：基于大语言模型的智能体设计、工作流编排、多轮对话管理
+- **RAG 系统**：检索增强生成、知识库构建、向量数据库应用
+- **工程实践**：API 集成、企业微信对接、自动化服务部署
+- **技术栈**：Python、FastGPT、LangChain、PyTorch、OpenCV
+
+---
+
+## 🚀 本地开发与维护
+
+如果你希望基于此模板进行部署或贡献代码，请参考以下流程：
+
+1. **环境要求**: Ruby / Jekyll (或对应的静态编译环境)
+2. **更新项目**: 修改 `_data/projects.yml` 即可在首页及项目页同步更新
+3. **撰写博客**: 在 `_posts/` 目录下创建 `YYYY-MM-DD-title.md`
+
+---
+
+## 📬 联系方式
+
+欢迎通过以下方式探讨技术或开展合作：
+
+- **GitHub**: https://github.com/G-LJH
+- **Email**: 18045034451@189.cn
+- **CSDN**: https://blog.csdn.net/qw1233w
+- **微信**: ljh18045034451
+
+---
+
+> 本网站持续更新中，记录我的技术成长与项目实践。
