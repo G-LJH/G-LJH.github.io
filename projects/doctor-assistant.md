@@ -29,7 +29,7 @@ permalink: /projects/doctor-assistant/
 
 ---
 
-<img src="/projects/images/doctor-assistant-UI.png" alt="医生智能助手界面" width="70%">
+![医生智能助手界面](/projects/images/doctor-assistant-UI.png)
 
 ### 核心技术栈
 
@@ -55,7 +55,7 @@ permalink: /projects/doctor-assistant/
 - 关键动作：设计 FastGPT 多分支条件节点
 - 交付成果：实现「医学/导诊/购药」多个功能
 
-<img src="/projects/images/doctor-assistant-workflow.png" alt="医生智能助手界面" width="70%">
+![医生智能助手工作流](/images/doctor-assistant-workflow.png)
 
 **接口开发**
 - 关键动作：封装企业微信中转服务
