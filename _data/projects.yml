@@ -44,7 +44,6 @@
     - MySQL
     - 企业微信
     - Webhook
-    - 异步处理
   featured: "true"
   order: 3
   url: /projects/wecom-archive/
