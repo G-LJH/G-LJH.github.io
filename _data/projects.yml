@@ -51,6 +51,22 @@
   demo:
   article:
 
+- title: xbotos 机器人监控系统
+  date: 2025
+  description: 基于 Streamlit 的 xbotos 机器人在线状态监控平台，支持阿里云短信告警、连续失败防误报和历史数据追踪。
+  technologies:
+    - Python
+    - Streamlit
+    - Docker
+    - 阿里云短信
+    - 监控系统
+  featured: "true"
+  order: 4
+  url: /projects/xbotos-monitor/
+  github: https://github.com/G-LJH/xbotos-monitor
+  demo:
+  article:
+
 
 # ============================================================
 # 以下为未展示在首页的项目（featured: false），但仍会在项目页面显示
