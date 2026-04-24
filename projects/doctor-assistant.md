@@ -29,7 +29,7 @@ permalink: /projects/doctor-assistant/
 
 ---
 
-<img src="../images/doctor-assistant-UI.png" alt="医生智能助手界面" width="70%">
+<img src="/images/doctor-assistant-UI.png" alt="医生智能助手界面" width="70%">
 
 ### 核心技术栈
 
