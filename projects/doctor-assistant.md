@@ -14,8 +14,22 @@ permalink: /projects/doctor-assistant/
 
 为多位不同专科医生定制开发的 AI 智能助手，通过 FastGPT 工作流实现 7×24 小时自动回复患者咨询。系统能够处理医学问答、挂号指引、购药引导等常见需求，并通过 API 接口集成到企业微信平台，实现自动化患者服务。
 
-<img src="../images/doctor-assistant-UI.png" alt="医生智能助手界面" width="70%">
+---
 
+## 🔗 立即体验
+
+以下是部分医生的 AI 助手公开体验链接：
+
+- 👨‍⚕️ **医生A**：[点击体验](http://114.55.140.84:3000/chat/share?shareId=n4R4kq8RvOX4SlesYAiz24I6)
+- 👩‍⚕️ **医生B**：[点击体验](http://114.55.140.84:3000/chat/share?shareId=x5ubK2jTYEAiylqyyrnQ1xau)
+- 👨‍⚕️ **医生C**：[点击体验](http://114.55.140.84:3000/chat/share?shareId=ssPea0cfK8txAusg5iTKC5hN)
+- 👩‍⚕️ **医生D**：[点击体验](http://114.55.140.84:3000/chat/share?shareId=qwAd7BTXVFeg45cb5dVPkRV0)
+
+> 💡 注：以上为公开体验链接，生产环境已深度集成至企业微信平台。
+
+---
+
+<img src="../images/doctor-assistant-UI.png" alt="医生智能助手界面" width="70%">
 
 ### 核心技术栈
 
@@ -71,16 +85,3 @@ permalink: /projects/doctor-assistant/
 - 检索增强生成，回答有据可查
 
 ---
-
-## 在线体验
-
-以下是部分医生的 AI 助手体验链接：
-
-- **医生A**：[点击体验](http://114.55.140.84:3000/chat/share?shareId=n4R4kq8RvOX4SlesYAiz24I6)
-- **医生B**：[点击体验](http://114.55.140.84:3000/chat/share?shareId=x5ubK2jTYEAiylqyyrnQ1xau)
-- **医生C**：[点击体验](http://114.55.140.84:3000/chat/share?shareId=ssPea0cfK8txAusg5iTKC5hN)
-- **医生D**：[点击体验](http://114.55.140.84:3000/chat/share?shareId=qwAd7BTXVFeg45cb5dVPkRV0)
-
----
-
-> 💡 注：以上为公开体验链接，生产环境已深度集成至企业微信平台。

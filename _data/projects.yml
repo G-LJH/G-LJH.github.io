@@ -35,6 +35,23 @@
   demo:
   article:
 
+- title: 企业微信会话存档系统
+  date: 2025
+  description: 通过第三方平台回调机制，实现企业微信消息的自动化异步存储，将企业合规成本从官方的 9万/人/年 降至趋近于 0。
+  technologies:
+    - Python
+    - Flask
+    - MySQL
+    - 企业微信
+    - Webhook
+    - 异步处理
+  featured: "true"
+  order: 3
+  url: /projects/wecom-archive/
+  github: https://github.com/G-LJH/wecom-archive
+  demo:
+  article:
+
 
 # ============================================================
 # 以下为未展示在首页的项目（featured: false），但仍会在项目页面显示
