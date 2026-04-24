@@ -39,7 +39,7 @@ permalink: /projects/wecom-archive/
 
 本项目已成功部署到 1Panel 容器管理面板上运行，以下是部署详情：
 
-![1panel部署](/images/wecom-chat-1panel.png)
+![1panel部署](/assets/images/wecom-chat-1panel.png)
 
 *1panel部署*
 
