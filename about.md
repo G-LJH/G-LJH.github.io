@@ -20,7 +20,7 @@ permalink: /about/
 ## 📄 简历下载
 
 <div style="display: flex; gap: 12px; flex-wrap: wrap; margin: 15px 0;">
-  <a href="/assets/pdf/简历-AI Agent 工程师.pdf" class="btn btn-primary" target="_blank">📄 AI Agent 工程师简历</a>
+  <a href="/assets/pdf/简历-AI Agent 工程师.pdf" class="btn btn-outline" target="_blank">📄 AI Agent 工程师简历</a>
   <a href="/assets/pdf/简历-AI产品经理.pdf" class="btn btn-outline" target="_blank">📄 AI 产品经理简历</a>
 </div>
 
