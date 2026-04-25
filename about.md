@@ -4,50 +4,72 @@ title: 关于我
 permalink: /about/
 ---
 
-# 👋 你好，我是刘佳慧 (Jiahui Liu)
+# 👋 你好，我是刘佳慧
 
 **杭州电子科技大学 · 智能科学与技术 · 2027 届**  
-**求职目标：AI Agent 工程师 / AI 产品经理**
+**求职方向：AI Agent 工程师 / AI 产品经理（可转正实习）**
 
-<img src="https://img.shields.io/badge/University-杭电-blue" alt="杭电">
 <img src="https://img.shields.io/badge/GPA-4.3%20%2F%205.0-orange" alt="GPA">
 <img src="https://img.shields.io/badge/English-CET--6-green" alt="CET-6">
 
-> **自我驱动的 AI 开发者**。我热衷于在 LLM 的不确定性中通过工程化手段构建"确定性"。我不仅关注如何让 Agent "跑起来"，更关注如何通过 **MCP 协议**、**长短期记忆**和**自动化评估**让它真正"好用"。
+> **一个看到重复劳动就想写脚本偷懒的工程师。**  
+> 热衷于在 LLM 的不确定性中，通过工程化手段构建"确定性"。不满足于让 Agent"跑起来"，更关心怎么让它真正"好用"。
+
+---
+
+## 📄 简历下载
+
+<div style="display: flex; gap: 12px; flex-wrap: wrap; margin: 15px 0;">
+  <a href="/assets/pdf/简历-AI Agent 工程师.pdf" class="btn btn-primary" target="_blank">📄 AI Agent 工程师简历</a>
+  <a href="/assets/pdf/简历-AI产品经理.pdf" class="btn btn-outline" target="_blank">📄 AI 产品经理简历</a>
+</div>
 
 ---
 
 ## 🎓 教育背景
 
 - **杭州电子科技大学** | 智能科学与技术（本科） | 2023.09 - 2027.06
-  - **学术表现**：GPA **4.3 / 5.0**（Top 20%），多次获得一等奖学金。
-  - **核心课程**：数据结构、深度学习、概率论与数理统计、智能机器人架构。
+  - GPA **4.3 / 5.0**，连续多次获优秀奖学金
+  - 已通过英语六级（CET-6）
+  - 在校期间参与导师课题组
 
 ---
 
-## 🛠️ 专业内核
+## 💼 实习经历
 
-### 🤖 AI Agent 核心开发
+### 浙江慧疗科技有限公司 | AI Agent 工程师（实习）| 2026.03 – 至今
+- 独立负责医疗专家智能体矩阵，从需求到生产交付全链路
+- 自主提炼模板化方案，将智能体搭建周期缩短约 80%
+- 独立开发企业微信低成本会话存档系统，将合规成本降至趋近于 0
 
-- **架构设计**：熟练运用 **LangGraph** 实现具备循环、容错机制的状态机 Agent；在 **FastGPT / Coze** 平台有深度工作流调优经验。
-- **RAG 进阶方案**：不限于简单的向量检索，深入实践过 **HyDE**（假设性文档嵌入）、**Rerank** 重排序及 **LlamaIndex** 路由策略。
-- **前沿实践**：深度关注 **MCP (Model Context Protocol)** 协议，致力于打破模型与本地工具的边界。
-- **Prompt Engineering**：擅长结构化提示词（Structured Prompting），能实现 99%+ 的 JSON 格式稳定输出。
-
-### 💻 全栈工程素养
-
-- **开发生态**：精通 **Python**，熟悉 **Trea / Cursor** 驱动的 AI 辅助编程，具备极高的开发效能。
-- **后端与基础设施**：Docker 容器化部署、Git 版本控制、MySQL 数据库建模、异步请求处理（High Performance Client）。
-- **跨端展示**：通过 **Vibe Coding** 快速构建 Gradio / Streamlit AI 应用原型与前端交互界面。
+### 杭州服务型制造研究院 | AI 工程师（实习）| 2025.10 – 2026.01
+- 参与搭建 RAG 驱动的智能投研系统，支持自动生成投资分析报告
+- 基于 MCP 协议设计多智能体协作工作流
 
 ---
 
-## 🌟 个人亮点
- 
-- **工程落地**：拒绝"调包"，深挖 **底层原理**；擅长将生活痛点转化为稳定的技术解决方案。
-- **知行合一**：**思维活跃** 且执行力极强；敢于挑战新想法，并能快速交付从 0 到 1 的工程原型。
-- **极速进化**：**持续学习者**；对前沿技术保持高度敏感，具备深钻新领域的韧性。
-- **架构思维**：**逻辑清晰**；擅长从模糊需求中抽象出清晰的技术路径，追求设计优雅与闭环。
+## 🛠️ 技术能力
+
+### AI Agent & 大模型
+- **Agent 框架**：FastGPT、Coze、LangChain、LangGraph、OpenClaw
+- **RAG 全链路**：知识清洗、Chunk 策略、向量检索、意图识别、混合检索
+- **多智能体**：从 0 到 1 构建"思考-执行"闭环，熟悉 MCP 协议
+- **模型微调**：LoRA 微调、Prompt Engineering、结构化输出
+
+### 工程开发
+- **语言**：Python（主力）、C++、JavaScript
+- **工具**：Git、Docker、MySQL、PyTorch
+- **AI 辅助开发**：Trae / Cursor
+- **应用开发**：Streamlit、Gradio
+
+---
+
+## 🌟 关于我
+
+- **思维活跃**：不满足于"按要求做事"，习惯思考有没有更好的方案
+- **创造力**：善于发现效率瓶颈并主动解决——模板化提效、自动化测评平台，都是从"不想手动搞"开始做的
+- **持续学习**：学新框架的速度比写 bug 快，从 FastGPT 到 MCP 到 OpenClaw，上手就能落地
+- **全链路交付**：从需求拆解到生产级部署，一人搞定
 
 ---
 

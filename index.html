@@ -5,64 +5,49 @@ title: 首页
 
 <div class="hero">
   <div class="hero-content">
-    <h1>你好，我是刘佳慧 </h1>
-    <p class="hero-subtitle">AI Agent 工程师 / AI产品经理</p>
+    <h1>你好，我是刘佳慧 🐉</h1>
+    <p class="hero-subtitle">AI Agent 工程师 / AI 产品经理</p>
     <p class="hero-desc">
-      杭州电子科技大学 · 智能科学与技术专业 · 2027届<br>
-      专注于 AI Agent 开发与应用，探索大模型在真实场景中的落地。
+      杭州电子科技大学 · 智能科学与技术 · 2027 届<br>
+      <strong>擅长把「这事儿能不能让 AI 干」从吐槽变成方案。</strong>
     </p>
     <div class="hero-links">
+      <a href="{{ site.baseurl }}/about/" class="btn btn-primary">关于我 →</a>
+      <a href="{{ site.baseurl }}/projects/" class="btn btn-outline">我的项目</a>
       <a href="https://github.com/G-LJH" class="btn btn-outline" target="_blank">GitHub</a>
-      <a href="https://blog.csdn.net/qw1233w" class="btn btn-outline" target="_blank">CSDN</a>
-      <a href="mailto:18045034451@189.cn" class="btn btn-outline">📧 邮件</a>
     </div>
   </div>
 </div>
 
 <section class="section">
-  <h2>🔥 核心技能</h2>
-  <div class="skills-grid">
-    <div class="skill-category">
-      <h3>编程语言</h3>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">C++</span>
-        <span class="tag">JavaScript</span>
-      </div>
+  <h2>✨ 为什么值得关注</h2>
+  <div class="highlights-grid">
+    <div class="highlight-card">
+      <div class="highlight-icon">🏗️</div>
+      <h3>从 0 到 1 的工程能力</h3>
+      <p>在慧疗实习独立搭建医疗智能体矩阵，从需求拆解到生产交付，一人搞定全链路。</p>
     </div>
-    <div class="skill-category">
-      <h3>AI / ML</h3>
-      <div class="tags">
-        <span class="tag">PyTorch</span>
-        <span class="tag">TensorFlow</span>
-        <span class="tag">OpenCV</span>
-        <span class="tag">LLM</span>
-      </div>
+    <div class="highlight-card">
+      <div class="highlight-icon">💡</div>
+      <h3>不满足于「能跑就行」</h3>
+      <p>发现重复搭建效率低 → 提炼模板方案提效 80%；发现评估缺失 → 自主开发自动化测评平台。</p>
     </div>
-    <div class="skill-category">
-      <h3>Agent 开发</h3>
-      <div class="tags">
-        <span class="tag">LangChain</span>
-        <span class="tag">RAG</span>
-        <span class="tag">Prompt Engineering</span>
-        <span class="tag">Agent 框架</span>
-      </div>
+    <div class="highlight-card">
+      <div class="highlight-icon">🚀</div>
+      <h3>学框架比写 bug 快</h3>
+      <p>FastGPT → LangGraph → MCP → OpenClaw，上手就能落地到真实项目。</p>
     </div>
-    <div class="skill-category">
-      <h3>工具 & 其他</h3>
-      <div class="tags">
-        <span class="tag">Git</span>
-        <span class="tag">Linux</span>
-        <span class="tag">Docker</span>
-        <span class="tag">FastAPI</span>
-      </div>
+    <div class="highlight-card">
+      <div class="highlight-icon">🎯</div>
+      <h3>多家机构实习经验</h3>
+      <p>慧疗（医疗 AI）、杭州服务型制造研究院（智能投研），跨界但聚焦 AI Agent。</p>
     </div>
   </div>
 </section>
 
 <section class="section">
   <h2>📌 精选项目</h2>
-  <p class="section-desc">以下是我近期的一些代表性项目，<a href="{{ site.baseurl }}/projects/">查看全部 →</a></p>
+  <p class="section-desc">以下是我近期的代表性项目，<a href="{{ site.baseurl }}/projects/">查看全部 →</a></p>
 
   <div class="projects-grid">
     {% assign featured = site.data.projects | where: "featured", true | sort: "order" %}
@@ -94,17 +79,8 @@ title: 首页
   </div>
 </section>
 
-<section class="section">
-  <h2>📝 最近文章</h2>
-  <div class="posts">
-    {% for post in site.posts limit: 3 %}
-    <article class="post">
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">阅读更多 →</a>
-    </article>
-    {% endfor %}
-  </div>
+<section class="section" style="text-align: center; padding: 30px 0;">
+  <h2>想了解更多？</h2>
+  <p class="section-desc">我的教育背景、技能详情、实习经历，以及简历下载。</p>
+  <a href="{{ site.baseurl }}/about/" class="btn btn-primary btn-lg">查看关于我 →</a>
 </section>
