@@ -251,6 +251,71 @@ nav {
 }
 
 //
+// Blog Columns (博客专栏卡片)
+//
+
+.blog-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.blog-column-card {
+  display: block;
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+
+    .column-link {
+      color: $blue;
+    }
+  }
+
+  .column-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: $darkerGray;
+  }
+
+  .column-desc {
+    font-size: 14px;
+    color: $gray;
+    line-height: 1.7;
+    margin: 0 0 15px;
+  }
+
+  .column-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: $blue;
+    transition: color 0.2s ease;
+  }
+}
+
+.blog-tip {
+  margin-top: 30px;
+  padding: 15px 20px;
+  background: #fffde7;
+  border-radius: 8px;
+  font-size: 14px;
+
+  p { margin: 5px 0; }
+}
+
+//
 // Highlights (首页亮点)
 //
 

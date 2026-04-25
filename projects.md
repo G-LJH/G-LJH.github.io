@@ -6,7 +6,7 @@ permalink: /projects/
 
 <div class="page-header">
   <h1>🛠️ 我的项目</h1>
-  <p class="page-desc">以下是我参与过的项目，涵盖 AI Agent、RAG、计算机视觉等方向。<br>点击卡片查看详情。</p>
+  <p class="page-desc">以下是我参与过的项目。<br>点击卡片查看详情。</p>
 </div>
 
 <div class="projects-grid projects-full">
@@ -38,5 +38,5 @@ permalink: /projects/
 </div>
 
 <div class="projects-tip">
-  <p>💡 提示：项目信息存储在 <code>_data/projects.yml</code> 中，修改后会自动更新。</p>
+  <p>💡 提示：具体项目信息可到我的github主页查看。</p>
 </div>
