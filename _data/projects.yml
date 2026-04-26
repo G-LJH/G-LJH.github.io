@@ -68,6 +68,23 @@
   article:
 
 
+- title: 牛客AI面试教练
+  date: 2025
+  description: 基于阿里百炼大模型的 AI 面试教练，自动抓取牛客面经、解析简历与 JD，生成 8 大模块个性化面试准备报告。
+  technologies:
+    - Python
+    - Flask
+    - 阿里百炼 DashScope
+    - 爬虫
+    - PDF 解析
+    - OCR
+  featured: "true"
+  order: 5
+  url: /projects/niuke-ai-coach/
+  github:
+  demo:
+  article:
+
 # ============================================================
 # 以下为未展示在首页的项目（featured: false），但仍会在项目页面显示
 # ============================================================
