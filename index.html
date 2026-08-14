@@ -194,57 +194,77 @@
       </div>
     </section>
 
-    <section class="block-section" aria-labelledby="works-title">
-      <div class="section-label">
+    <section id="works" class="block-section" aria-labelledby="works-title">
+      <div class="section-label works-heading">
         <h2 id="works-title">作品</h2>
-        <p>截图与详情在作品页；首页只作入口。</p>
+        <p class="works-hint"><span aria-hidden="true">↘</span> 点击卡片查看详情</p>
       </div>
 
-      <div class="bento works-bento">
-        <a class="tile work-tile" href="projects/betteryeah-ai-cs/">
-          <div class="work-thumb">
-            <img src="assets/images/betteryeah-ai-cs-hero.png" alt="BetterYeah AI 智能客服官网首屏" loading="lazy" />
+      <div class="works-grid">
+        <a class="tile work-card work-card-featured" href="projects/agent-for-you/">
+          <div class="work-card-top">
+            <span class="work-number">01</span>
+            <span class="work-tag">个人 Agent · Vibe Coding</span>
           </div>
-          <div class="work-copy">
-            <h3>AI 智能客服官网</h3>
-            <p>产品定位、三层价值主张与官网 Demo</p>
-          </div>
+          <h3>Agent_for_you</h3>
+          <p class="work-summary">让 AI 不止回答一次，而是围绕项目持续记忆、开会、整理文件并按时执行任务。</p>
+          <p class="work-proof">从产品定义到本地原型，完整设计项目工作台、长期记忆、AI 会议与自动化任务。</p>
+          <span class="work-action">查看详情 <span aria-hidden="true">↗</span></span>
         </a>
 
-        <a class="tile work-tile" href="projects/doctor-assistant/">
-          <div class="work-thumb">
-            <img src="assets/images/doctor-assistant-UI.png" alt="医生智能助手界面截图" loading="lazy" />
+        <a class="tile work-card" href="projects/doctor-assistant/">
+          <div class="work-card-top">
+            <span class="work-number">02</span>
+            <span class="work-tag">医疗 AI · 0–1 交付</span>
           </div>
-          <div class="work-copy">
-            <h3>医生智能助手</h3>
-            <p>FastGPT 专科医生矩阵，企微接入端到端交付</p>
-          </div>
+          <h3>医生智能助手</h3>
+          <p class="work-summary">把专科知识、对话策略与安全兜底组合成可实际服务患者的医生 Agent。</p>
+          <p class="work-proof">搭建 8 位专科医生智能体，标准化模板让后续搭建周期缩短约 80%。</p>
+          <span class="work-action">查看详情 <span aria-hidden="true">↗</span></span>
         </a>
 
-        <a class="tile work-tile" href="projects/fastgpt-agent-tester/">
-          <div class="work-thumb">
-            <img src="assets/images/fastgpt-report1.png" alt="LLM 测评报告截图" loading="lazy" />
+        <a class="tile work-card" href="projects/betteryeah-ai-cs/">
+          <div class="work-card-top">
+            <span class="work-number">03</span>
+            <span class="work-tag">产品官网 · AI 客服</span>
           </div>
-          <div class="work-copy">
-            <h3>LLM 自动化测评</h3>
-            <p>双角色测评 + 无代码配置，回归从天级到分钟级</p>
-          </div>
+          <h3>AI 智能客服官网</h3>
+          <p class="work-summary">从客户定位到价值表达，重新设计面向 KA 客群的 AI 智能客服产品官网。</p>
+          <p class="work-proof">完成竞品研究、信息架构、三层价值主张与可访问的完整官网 Demo。</p>
+          <span class="work-action">查看详情 <span aria-hidden="true">↗</span></span>
         </a>
 
-        <a class="tile work-tile" href="projects/wecom-archive/">
-          <div class="work-thumb">
-            <img src="assets/images/wecom-chat-1panel.png" alt="企微会话存档截图" loading="lazy" />
+        <a class="tile work-card" href="projects/fastgpt-agent-tester/">
+          <div class="work-card-top">
+            <span class="work-number">04</span>
+            <span class="work-tag">Agent 评测 · 自动化</span>
           </div>
-          <div class="work-copy">
-            <h3>企微会话存档</h3>
-            <p>第三方回调方案，合规成本趋近于 0</p>
-          </div>
+          <h3>LLM 自动化测评</h3>
+          <p class="work-summary">用用户智能体与裁判智能体批量模拟对话，让 Agent 回归测试稳定可复现。</p>
+          <p class="work-proof">支持无代码配置与多维评分，把原本天级的人工回归压缩到分钟级。</p>
+          <span class="work-action">查看详情 <span aria-hidden="true">↗</span></span>
         </a>
 
-        <a class="tile works-cta" href="projects/">
-          <span class="works-cta-kicker">全部作品</span>
-          <span class="works-cta-title">查看介绍与截图</span>
-          <span class="works-cta-arrow" aria-hidden="true">→</span>
+        <a class="tile work-card" href="projects/wecom-archive/">
+          <div class="work-card-top">
+            <span class="work-number">05</span>
+            <span class="work-tag">企业微信 · 工程方案</span>
+          </div>
+          <h3>企业微信会话存档</h3>
+          <p class="work-summary">用第三方回调完成低成本会话沉淀，为后续质检与 RAG 留下数据接口。</p>
+          <p class="work-proof">将官方方案约 9 万元/人/年的成本降至接近 0，并沉淀为公司服务能力。</p>
+          <span class="work-action">查看详情 <span aria-hidden="true">↗</span></span>
+        </a>
+
+        <a class="tile work-card" href="projects/niuke-ai-coach/">
+          <div class="work-card-top">
+            <span class="work-number">06</span>
+            <span class="work-tag">AI 求职 · 产品闭环</span>
+          </div>
+          <h3>牛客 AI 面试教练</h3>
+          <p class="work-summary">结合面经、简历与 JD，生成针对具体岗位的个性化面试准备报告。</p>
+          <p class="work-proof">覆盖 8 大准备模块，把零散招聘信息组织成可直接练习的行动方案。</p>
+          <span class="work-action">查看详情 <span aria-hidden="true">↗</span></span>
         </a>
       </div>
     </section>
