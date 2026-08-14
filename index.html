@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/site.css" />
+  <link rel="stylesheet" href="css/home-capabilities.css" />
 </head>
 <body>
   <div class="page-bg" aria-hidden="true"></div>
@@ -16,6 +17,7 @@
   <header class="site-header">
     <a class="logo" href="#top">刘佳慧</a>
     <nav class="nav">
+      <a href="#capabilities">能力</a>
       <a href="#experience">经历</a>
       <a href="projects/">作品</a>
       <a href="#contact">联系</a>
@@ -59,6 +61,44 @@
           <span class="photo-hint">照片稍后换</span>
         </div>
       </div>
+    </section>
+
+    <section id="capabilities" class="block-section" aria-labelledby="capabilities-title">
+      <div class="section-label">
+        <h2 id="capabilities-title">能力与方法</h2>
+        <p>不是工具清单，而是我解决问题的四种方式。</p>
+      </div>
+
+      <div class="capabilities-grid">
+        <article class="tile capability-card">
+          <h3>场景与产品</h3>
+          <p>澄清客户需求，拆解业务场景与流程，识别 AI 能力边界，把模糊问题转成可实现、可验收的产品方案。</p>
+          <p class="capability-evidence">需求调研 · 流程建模 · 方案设计 · 验收推进</p>
+        </article>
+
+        <article class="tile capability-card">
+          <h3>Agent 构建</h3>
+          <p>设计 Agent 工作流、知识体系、SOP 与 Prompt，并补齐工具调用、多轮对话、异常兜底和转人工策略。</p>
+          <p class="capability-evidence">FastGPT · RAG · Knowledge · Tool Use</p>
+        </article>
+
+        <article class="tile capability-card">
+          <h3>评测与优化</h3>
+          <p>通过 Testcase、评测集和 Bad Case 归因定位问题，持续优化 Prompt、知识与配置。</p>
+          <p class="capability-evidence">约 600 条评测集通过率 85% → 92%</p>
+        </article>
+
+        <article class="tile capability-card">
+          <h3>交付与复用</h3>
+          <p>推动方案完成上线、培训、复盘与规模化复制，并将一次性经验沉淀为模板、SOP 和 Skill。</p>
+          <p class="capability-evidence">1 个月交付 19 个 Agent · 37 个意图骨架</p>
+        </article>
+      </div>
+
+      <article class="tile capabilities-statement" aria-labelledby="self-review-title">
+        <h3 id="self-review-title">自我评价</h3>
+        <p>我擅长在业务场景、AI 能力边界、产品方案与研发实现之间做连接，推动 Agent 从需求走到上线，再沉淀成可复用的方法。比起只做需求翻译，我更愿意自己下场搭建、评测和造工具，把模糊想法变成真正可用的结果。</p>
+      </article>
     </section>
 
     <section id="experience" class="block-section" aria-labelledby="exp-title">
