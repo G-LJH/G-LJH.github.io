@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LLM 自动化测评平台 · 刘佳慧</title>
+  <meta name="description" content="FastGPT Agent Tester：用户智能体 + 裁判智能体的自动化测评闭环。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/site.css" />
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="logo" href="../../">刘佳慧</a>
+    <nav class="nav">
+      <a href="../../#experience">经历</a>
+      <a href="../" aria-current="page">作品</a>
+      <a href="../../#contact">联系</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <header class="page-hero">
+      <p class="breadcrumb"><a href="../../">首页</a> / <a href="../">作品</a> / 测评平台</p>
+      <h1>LLM 自动化测评平台</h1>
+      <p>专为 FastGPT 智能体设计的自动化测评框架：批量测试 → 智能评分 → 优化建议。</p>
+      <div class="detail-links">
+        <a class="btn btn-primary" href="https://github.com/G-LJH/FastGPT-Agent-Tester" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="../">全部作品</a>
+      </div>
+    </header>
+
+    <article class="tile detail-prose">
+      <p>智能体迭代常缺标准化评估，人工逐条难复现。本项目以「用户智能体 + 裁判智能体」双角色，配合多维评分与 Markdown 无代码配置，把回归从人工逐条升级为自动化批量，效率从天级缩短至分钟级。</p>
+
+      <h2>为什么需要自动化测评</h2>
+      <ul>
+        <li><strong>效率</strong>：从逐条对话到批量运行，一夜可完成大量测试</li>
+        <li><strong>标准</strong>：统一标尺、多维度客观量化，减少因人而异</li>
+        <li><strong>成本</strong>：一次编写配置，可持续复用</li>
+        <li><strong>反馈</strong>：结构化报告直接指导 Prompt / 流程优化</li>
+        <li><strong>覆盖</strong>：全场景批量覆盖，降低抽样遗漏</li>
+      </ul>
+
+      <h2>核心能力</h2>
+      <ul>
+        <li><strong>双模对弈</strong>：用户智能体模拟真实多轮对话</li>
+        <li><strong>多维评分</strong>：裁判智能体按自定义标准量化打分</li>
+        <li><strong>Markdown 配置</strong>：无需改代码即可定义测试方案</li>
+        <li><strong>报告与闭环</strong>：汇总薄弱点并生成优化建议</li>
+      </ul>
+
+      <h2>测评报告</h2>
+      <figure class="detail-figure">
+        <img src="../../assets/images/fastgpt-report1.png" alt="测评报告概览" />
+        <figcaption>测评报告概览</figcaption>
+      </figure>
+      <figure class="detail-figure">
+        <img src="../../assets/images/fastgpt-report2.png" alt="多维度评分详情" />
+        <figcaption>多维度评分详情</figcaption>
+      </figure>
+
+      <h2>架构要点</h2>
+      <ul>
+        <li>Loader：解析 Markdown 配置，初始化任务队列</li>
+        <li>User Agent：模拟不同背景用户发起咨询</li>
+        <li>FastGPT Client：异步多轮对话状态维护</li>
+        <li>Judge Agent：按评分标准客观打分</li>
+        <li>Optimizer：汇总缺陷模式，输出优化策略</li>
+      </ul>
+
+      <h2>技术栈</h2>
+      <ul>
+        <li>Python · AsyncIO · LLM · FastGPT · 多智能体</li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="../">← 返回作品列表</a></p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,93 +1,251 @@
----
-layout: default
-title: 首页
----
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>刘佳慧</title>
+  <meta name="description" content="刘佳慧 — 杭州电子科技大学 · 智能科学与技术。做 AI Agent 交付、效果评测与可规模化方案落地。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
 
-<div class="hero">
-  <div class="hero-content">
-    <h1>你好，我是刘佳慧 </h1>
-    <p class="hero-subtitle">AI Agent 工程师 / AI 产品经理</p>
-    <p class="hero-desc">
-      杭州电子科技大学 · 智能科学与技术 · 2027 届<br>
-      <strong>一名专注于将AI Agent从概念落地为可靠产品的工程师。</strong>
-    </p>
-    <div class="hero-links">
-      <a href="{{ site.baseurl }}/about/" class="btn btn-outline">关于我 →</a>
-      <a href="{{ site.baseurl }}/projects/" class="btn btn-outline">我的项目</a>
-      <a href="https://github.com/G-LJH" class="btn btn-outline" target="_blank">GitHub</a>
-    </div>
-  </div>
-</div>
+  <header class="site-header">
+    <a class="logo" href="#top">刘佳慧</a>
+    <nav class="nav">
+      <a href="#experience">经历</a>
+      <a href="projects/">作品</a>
+      <a href="#contact">联系</a>
+    </nav>
+  </header>
 
-<section class="section">
-  <h2>👋 关于我</h2>
-  <p class="section-desc" style="font-size: 1.1rem; max-width: 700px; margin: 0 auto 30px; line-height: 1.8;">
-    我是<strong>刘佳慧</strong>，一名即将于2027年毕业的<strong>AI Agent 工程师</strong>。<br>
-    我热衷于将前沿的 LLM 技术，通过扎实的工程实践，转化为能实际解决问题、降本增效的 AI 产品。<br>
-    从在慧疗独立交付完整的医疗智能体矩阵，到在杭研院探索 RAG 驱动的智能投研系统，<br>
-    我一直在证明自己的<strong>全链路交付能力</strong>。
-  </p>
-
-  <div class="highlights-grid">
-    <div class="highlight-card">
-      <div class="highlight-icon">🏗️</div>
-      <h3>从 0 到 1 独立交付</h3>
-      <p>在慧疗实习一人搞定全链路：需求分析 → 方案设计 → 开发部署 → 生产交付，搭建医疗智能体矩阵。</p>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">💡</div>
-      <h3>不止于「能跑就行」</h3>
-      <p>发现重复搭建效率低 → 提炼模板方案提效 80%；发现评估缺失 → 自主开发自动化测评平台。</p>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">�</div>
-      <h3>RAG + Agent 双引擎</h3>
-      <p>在杭研院探索 RAG 驱动的智能投研系统，在慧疗落地医疗问答智能体，技术栈覆盖 FastGPT / LangGraph / MCP。</p>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">🎯</div>
-      <h3>跨界但聚焦</h3>
-      <p>医疗 AI、智能投研……场景在变，核心不变：用 AI Agent 解决真实问题，交付可靠产品。</p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>📌 精选项目</h2>
-  <p class="section-desc">以下是我近期的代表性项目，<a href="{{ site.baseurl }}/projects/">查看全部 →</a></p>
-
-  <div class="projects-grid">
-    {% assign featured = site.data.projects | where: "featured", true | sort: "order" %}
-    {% for project in featured limit: 3 %}
-    <a href="{{ site.baseurl }}{{ project.url }}" class="project-card">
-      <div class="card-header">
-        <h3>{{ project.title }}</h3>
-        <span class="card-date">{{ project.date }}</span>
+  <main id="top" class="shell">
+    <section class="tile hero-tile" aria-label="简介">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="assets/images/hero-atmosphere.png" alt="" width="960" height="540" />
       </div>
-      <p class="card-desc">{{ project.description }}</p>
-      <div class="card-tags">
-        {% for tech in project.technologies %}
-        <span class="tag tag-tech">{{ tech }}</span>
-        {% endfor %}
+      <div class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Hangzhou · AI Agent</p>
+          <h1 class="name">刘佳慧</h1>
+          <p class="lead">
+            在业务场景、AI 能力边界与产品方案之间做连接，把 Agent 交付成可验证的结果。
+          </p>
+          <p class="edu">
+            杭州电子科技大学 · 智能科学与技术 · 2027 届
+            <span class="sep">·</span> GPA 4.3/5
+            <span class="sep">·</span> CET-6
+            <span class="sep">·</span> 浙江杭州
+          </p>
+          <div class="cta-row">
+            <div class="resume-menu">
+              <button type="button" class="btn btn-primary resume-toggle" aria-expanded="false" aria-haspopup="true">
+                下载简历
+              </button>
+              <div class="resume-panel" hidden>
+                <a href="assets/pdf/简历-AI%20Agent%20工程师.pdf" target="_blank" rel="noopener">AI Agent 工程师简历</a>
+                <a href="assets/pdf/简历-AI产品经理.pdf" target="_blank" rel="noopener">AI 产品经理简历</a>
+              </div>
+            </div>
+            <a class="btn btn-soft" href="projects/">查看作品</a>
+            <a class="text-link" href="https://github.com/G-LJH" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="photo-ph" aria-label="个人照片占位">
+          <span class="photo-initials">LJH</span>
+          <span class="photo-hint">照片稍后换</span>
+        </div>
       </div>
-      <div class="card-links">
-        {% if project.github %}
-        <span class="card-link">📂 GitHub</span>
-        {% endif %}
-        {% if project.demo %}
-        <span class="card-link">🔗 Demo</span>
-        {% endif %}
-        {% if project.article %}
-        <span class="card-link">📝 文章</span>
-        {% endif %}
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-</section>
+    </section>
 
-<section class="section" style="text-align: center; padding: 30px 0;">
-  <h2>想了解更多？</h2>
-  <p class="section-desc">我的教育背景、技能详情、实习经历，以及简历下载。</p>
-  <a href="{{ site.baseurl }}/about/" class="btn btn-primary btn-lg">查看关于我 →</a>
-</section>
+    <section id="experience" class="block-section" aria-labelledby="exp-title">
+      <div class="section-label">
+        <h2 id="exp-title">实习经历</h2>
+        <p>按公司分块，公司下再按项目展开。</p>
+      </div>
+
+      <div class="jobs-stack">
+        <article class="tile job-card">
+          <header class="job-head">
+            <div>
+              <h3>斑头雁(杭州)智能科技有限公司</h3>
+              <p class="meta">技术支持实习 · 公司级标杆客户 AI 客服交付 · 2026.05 – 至今</p>
+            </div>
+            <span class="chip">当前</span>
+          </header>
+          <p class="job-blurb">面向 B 端 AI 客服 Agent，独立推进多家公司级标杆客户的交付、评测与规模化上线。</p>
+
+          <div class="project-block">
+            <h4>自然堂 · 多店规模化交付</h4>
+            <ul class="result-list">
+              <li>负责公司级标杆项目 AI 电商客服全流程：售前推荐、售后承接、SOP、商品/活动/FAQ 知识、商品映射与关系图谱、Testcase 与测试报告等</li>
+              <li>多品牌多店铺交付：对接客户资料与内部配置，推进 Agent 创建、知识补充、商品映射、测试调优与报告评审；近 1 个月完成 <strong>19</strong> 个智能体优化交付并全部上线</li>
+              <li>针对「一店打磨可交付、多店逐店重做 SOP」瓶颈，提出并落地 <strong>SOP 迁移</strong>：情景骨架 → 证据提取 → SOP 合成 → Excel 审阅 → 定稿；模板拆 <strong>37</strong> 个意图骨架</li>
+              <li>沉淀为团队可复用 Skill（prompts、规范、样例、校验），自然堂项目团队整体采用；并对客户做平台工具培训</li>
+            </ul>
+          </div>
+
+          <div class="project-block">
+            <h4>某时尚鞋服集团 · Agent 效果优化</h4>
+            <ul class="result-list">
+              <li>案例侧：售前独立解决率 90%+，询单转化反超真人</li>
+              <li>每周独立分析约 <strong>400</strong> 条真实对话 bad case；约 4 周内协助将约 <strong>600</strong> 条测评集人工评测通过率从 <strong>85% → 92%</strong></li>
+              <li>将平台层问题抽象为产品需求，协同技术迭代</li>
+            </ul>
+          </div>
+
+          <div class="project-block">
+            <h4>江苏天马 · 商品知识攻坚</h4>
+            <ul class="result-list">
+              <li>自研知识学习与补充工具，完成近 <strong>3000</strong> 个 SKU 结构化导入</li>
+              <li>设计并落地 SKU/SPU 查询对比方案（补平台能力缺口）；重构 SOP 与 FAQ，提升商品咨询回复质量</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="tile job-card">
+          <header class="job-head">
+            <div>
+              <h3>浙江慧疗科技有限公司</h3>
+              <p class="meta">AI Agent 产品与研发 · 2026.03 – 2026.05</p>
+            </div>
+          </header>
+          <p class="job-blurb">从 0-1 做医疗专家智能体矩阵，并把低成本会话存档沉淀为公司服务能力。</p>
+
+          <div class="project-block">
+            <h4>医疗专家智能体矩阵（0-1）</h4>
+            <ul class="result-list">
+              <li>面向医生重复咨询、回复标准不一致：科室调研，拆解问答 / 挂号 / 购药等场景；输出需求文档、对话流程与交互方案</li>
+              <li>基于 FastGPT 搭建 <strong>8</strong> 位专科医生智能体；专科知识库、Prompt / 对话策略；意图兜底、安全过滤与确定性回复，控制幻觉 / 越界 / 非标回答</li>
+              <li>企业微信患者端接入，端到端交付；沉淀专家智能体标准化模板，后续搭建周期缩短约 <strong>80%</strong></li>
+            </ul>
+          </div>
+
+          <div class="project-block">
+            <h4>企业微信低成本会话存档</h4>
+            <ul class="result-list">
+              <li>针对官方会话存档成本高：调研第三方回调并设计替代方案，成本由约 <strong>9 万元/人/年</strong> 降至接近 <strong>0</strong></li>
+              <li>推动成为公司服务能力，为后续质检 / RAG 留接口</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="tile job-card">
+          <header class="job-head">
+            <div>
+              <h3>杭州服务型制造研究院</h3>
+              <p class="meta">研究助理 · 2025.10 – 2026.01</p>
+            </div>
+          </header>
+          <p class="job-blurb">参与 RAG 驱动的智能投研产品：从研报解析到报告生成的端到端工作流。</p>
+
+          <div class="project-block">
+            <h4>RAG 智能投研</h4>
+            <ul class="result-list">
+              <li>参与设计端到端工作流：研报解析、关键信息提取、多维分析与报告生成；推动文档解析、语义切片、检索召回、上下文组装与生成等数据管道</li>
+              <li>设计「章节语义 + 表格保护」切片策略，避免研报切片破坏章节与表格结构</li>
+              <li>参与多智能体协作流程：任务规划、多维度并行分析、报告生成；构建可复用智能投研 Agent 框架</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="block-section" aria-labelledby="works-title">
+      <div class="section-label">
+        <h2 id="works-title">作品</h2>
+        <p>截图与详情在作品页；首页只作入口。</p>
+      </div>
+
+      <div class="bento works-bento">
+        <a class="tile work-tile" href="projects/doctor-assistant/">
+          <div class="work-thumb">
+            <img src="assets/images/doctor-assistant-UI.png" alt="医生智能助手界面截图" loading="lazy" />
+          </div>
+          <div class="work-copy">
+            <h3>医生智能助手</h3>
+            <p>FastGPT 专科医生矩阵，企微接入端到端交付</p>
+          </div>
+        </a>
+
+        <a class="tile work-tile" href="projects/fastgpt-agent-tester/">
+          <div class="work-thumb">
+            <img src="assets/images/fastgpt-report1.png" alt="LLM 测评报告截图" loading="lazy" />
+          </div>
+          <div class="work-copy">
+            <h3>LLM 自动化测评</h3>
+            <p>双角色测评 + 无代码配置，回归从天级到分钟级</p>
+          </div>
+        </a>
+
+        <a class="tile work-tile" href="projects/wecom-archive/">
+          <div class="work-thumb">
+            <img src="assets/images/wecom-chat-1panel.png" alt="企微会话存档截图" loading="lazy" />
+          </div>
+          <div class="work-copy">
+            <h3>企微会话存档</h3>
+            <p>第三方回调方案，合规成本趋近于 0</p>
+          </div>
+        </a>
+
+        <a class="tile works-cta" href="projects/">
+          <span class="works-cta-kicker">全部作品</span>
+          <span class="works-cta-title">查看介绍与截图</span>
+          <span class="works-cta-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="block-section" aria-labelledby="contact-title">
+      <div class="section-label">
+        <h2 id="contact-title">联系</h2>
+        <p>欢迎沟通实习与合作。</p>
+      </div>
+
+      <div class="bento contact-bento">
+        <a class="tile contact-tile" href="mailto:18045034451@189.cn">
+          <span class="contact-label">邮箱</span>
+          <span class="contact-value">18045034451@189.cn</span>
+        </a>
+        <a class="tile contact-tile" href="tel:18045034451">
+          <span class="contact-label">电话</span>
+          <span class="contact-value">18045034451</span>
+        </a>
+        <a class="tile contact-tile" href="https://github.com/G-LJH" target="_blank" rel="noopener">
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">G-LJH</span>
+        </a>
+        <a class="tile contact-tile" href="https://blog.csdn.net/qw1233w" target="_blank" rel="noopener">
+          <span class="contact-label">CSDN</span>
+          <span class="contact-value">qw1233w</span>
+        </a>
+        <div class="tile contact-tile contact-resume">
+          <span class="contact-label">简历</span>
+          <div class="resume-menu">
+            <button type="button" class="btn btn-primary resume-toggle" aria-expanded="false" aria-haspopup="true">
+              下载简历
+            </button>
+            <div class="resume-panel" hidden>
+              <a href="assets/pdf/简历-AI%20Agent%20工程师.pdf" target="_blank" rel="noopener">AI Agent 工程师简历</a>
+              <a href="assets/pdf/简历-AI产品经理.pdf" target="_blank" rel="noopener">AI 产品经理简历</a>
+            </div>
+          </div>
+        </div>
+        <figure class="tile wechat-tile">
+          <img src="assets/images/wechat-qr.png" alt="微信二维码：扫码添加刘佳慧" width="420" height="560" />
+          <figcaption>微信 · ljh18045034451</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>刘佳慧 · Hangzhou</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

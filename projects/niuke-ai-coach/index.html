@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>牛客 AI 面试教练 · 刘佳慧</title>
+  <meta name="description" content="基于大模型的面试教练：解析简历与 JD，生成多模块面试准备报告。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/site.css" />
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="logo" href="../../">刘佳慧</a>
+    <nav class="nav">
+      <a href="../../#experience">经历</a>
+      <a href="../" aria-current="page">作品</a>
+      <a href="../../#contact">联系</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <header class="page-hero">
+      <p class="breadcrumb"><a href="../../">首页</a> / <a href="../">作品</a> / 面试教练</p>
+      <h1>牛客 AI 面试教练</h1>
+      <p>自动抓取面经、解析简历与 JD，生成 8 大模块个性化面试准备报告。</p>
+      <div class="detail-links">
+        <a class="btn btn-primary" href="https://github.com/G-LJH/niuke-ai-coach" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="../">全部作品</a>
+      </div>
+    </header>
+
+    <article class="tile detail-prose">
+      <p>基于阿里百炼大模型的面试教练：抓取牛客面经、结构化解析简历，并结合 JD 生成可导出的个性化准备报告。初衷是减少求职准备中的重复劳动。</p>
+
+      <h2>Web 界面</h2>
+      <figure class="detail-figure">
+        <img src="../../assets/images/niuke-ai-coach-web-ui.png" alt="牛客 AI 面试教练 Web 界面" />
+        <figcaption>配置页与报告入口</figcaption>
+      </figure>
+
+      <h2>报告示例</h2>
+      <figure class="detail-figure">
+        <img src="../../assets/images/niuke-ai-coach-report.png" alt="面试准备报告截图" />
+        <figcaption>生成报告截图</figcaption>
+      </figure>
+
+      <h2>核心能力</h2>
+      <ul>
+        <li><strong>智能爬虫</strong>：抓取目标岗位面经，内置限速与反爬处理</li>
+        <li><strong>简历解析</strong>：PDF 结构化提取</li>
+        <li><strong>JD 识别</strong>：支持文本与截图 OCR，提取岗位要求与技术栈</li>
+        <li><strong>报告生成</strong>：岗位 + 简历 + 面经 → 8 大模块报告（整体评价、岗位分析、高频考点、项目深挖、行为面试等）</li>
+        <li><strong>断点续传</strong>：长流程任务保存进度，支持异常恢复</li>
+        <li><strong>Web 界面</strong>：Flask 构建，实时进度与 Markdown 导出</li>
+      </ul>
+
+      <h2>技术栈</h2>
+      <ul>
+        <li>Python · Flask · 阿里百炼 DashScope</li>
+        <li>Requests / BeautifulSoup · PDF 解析 · OCR · 状态管理</li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="../">← 返回作品列表</a></p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

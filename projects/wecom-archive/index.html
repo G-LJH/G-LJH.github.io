@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>企业微信会话存档 · 刘佳慧</title>
+  <meta name="description" content="通过第三方回调实现企业微信消息异步存档，显著降低合规成本。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/site.css" />
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="logo" href="../../">刘佳慧</a>
+    <nav class="nav">
+      <a href="../../#experience">经历</a>
+      <a href="../" aria-current="page">作品</a>
+      <a href="../../#contact">联系</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <header class="page-hero">
+      <p class="breadcrumb"><a href="../../">首页</a> / <a href="../">作品</a> / 会话存档</p>
+      <h1>企业微信会话存档</h1>
+      <p>用第三方回调替代官方存档，把合规成本从约 9 万/人/年降到接近 0，并推动成为公司服务能力。</p>
+      <div class="detail-links">
+        <a class="btn btn-primary" href="https://github.com/G-LJH/wecom-archive" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="../">全部作品</a>
+      </div>
+    </header>
+
+    <article class="tile detail-prose">
+      <p>会话存档是合规与质检的核心能力，但官方接口成本高、对接复杂，也难与内部 CRM / AI 知识库打通。本方案通过第三方回调完成消息捕获与结构化存储，打通从捕获到入库的链路。</p>
+
+      <h2>背景与痛点</h2>
+      <ul>
+        <li>官方接口服务费高，中小团队难负担</li>
+        <li>直接对接底层 SDK / 解密流程复杂</li>
+        <li>聊天数据难灵活接入内部系统与 RAG</li>
+      </ul>
+
+      <h2>工程亮点</h2>
+      <ul>
+        <li><strong>部署轻量</strong>：现代包管理与容器化，便于上线</li>
+        <li><strong>可运维</strong>：日志监控 + health 自检</li>
+        <li><strong>可扩展</strong>：预留 RAG / 质检接口，存档数据可进入后续智能应用</li>
+      </ul>
+
+      <h2>部署运行</h2>
+      <figure class="detail-figure">
+        <img src="../../assets/images/wecom-chat-1panel.png" alt="1Panel 上 wecom-chat-archive 容器运行状态" />
+        <figcaption>已部署至 1Panel 容器环境运行</figcaption>
+      </figure>
+      <ul>
+        <li>示例环境：2 核 4G · Ubuntu 22.04 · 1Panel · OpenResty · MySQL 8.0</li>
+      </ul>
+
+      <h2>技术栈</h2>
+      <ul>
+        <li>Python · Flask · MySQL · Webhook · 企业微信</li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="../">← 返回作品列表</a></p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,63 +1,29 @@
-# 刘佳慧 (Jiahui Liu) - 个人简历及项目门户
+# 刘佳慧 · 个人站点
 
-> 🌐 https://G-LJH.github.io
+纯静态站（HTML / CSS / JS），部署于 GitHub Pages：https://G-LJH.github.io
 
-这是我的个人门户网站源码仓库。该网站旨在展示我在人工智能、AI Agent 开发及工程实践领域的技术能力与项目经验。
+## 本地预览
 
----
+```bash
+python3 -m http.server 8765
+```
 
-## 🌐 站点访问
+打开 http://127.0.0.1:8765/
 
-**正式发布地址：** `https://G-LJH.github.io`
-
----
-
-## 🛠️ 技术架构与目录索引
-
-本项目采用数据驱动的设计模式，通过分离内容（Markdown）与配置（YAML）来实现高效的项目管理。
-
-### 核心目录结构
+## 结构
 
 | 路径 | 说明 |
 |------|------|
-| `_data/projects.yml` | **核心数据中枢**，集中管理所有项目的元数据（名称、技术栈、链接） |
-| `projects/` | 项目详情库，涵盖 **Agent 框架、RAG 系统、医疗 AI 助手**等技术文档 |
-| `_posts/` | 技术博客，记录工程复盘、算法实践及技术思考 |
-| `_config.yml` | 站点全局配置文件 |
-| `style.scss` | 自定义样式文件 |
+| `index.html` | 首页 |
+| `projects/` | 作品列表与详情 |
+| `css/` `js/` | 样式与交互 |
+| `assets/images/` | 截图、氛围图、微信码 |
+| `assets/pdf/` | 两份简历 |
+| `content/` | 文案与事实素材（非线上页面） |
+| `discussion/` | 设计讨论记录 |
 
----
+## 联系
 
-## 🎯 核心能力
-
-我目前专注于以下技术领域：
-
-- **AI Agent 开发**：基于大语言模型的智能体设计、工作流编排、多轮对话管理
-- **RAG 系统**：检索增强生成、知识库构建、向量数据库应用
-- **工程实践**：API 集成、企业微信对接、自动化服务部署
-- **技术栈**：Python、FastGPT、LangChain、PyTorch、OpenCV
-
----
-
-## 🚀 本地开发与维护
-
-如果你希望基于此模板进行部署或贡献代码，请参考以下流程：
-
-1. **环境要求**: Ruby / Jekyll (或对应的静态编译环境)
-2. **更新项目**: 修改 `_data/projects.yml` 即可在首页及项目页同步更新
-3. **撰写博客**: 在 `_posts/` 目录下创建 `YYYY-MM-DD-title.md`
-
----
-
-## 📬 联系方式
-
-欢迎通过以下方式探讨技术或开展合作：
-
-- **GitHub**: https://github.com/G-LJH
-- **Email**: 18045034451@189.cn
-- **CSDN**: https://blog.csdn.net/qw1233w
-- **微信**: ljh18045034451
-
----
-
-> 本网站持续更新中，记录我的技术成长与项目实践。
+- 邮箱：18045034451@189.cn
+- GitHub：[G-LJH](https://github.com/G-LJH)
+- CSDN：[qw1233w](https://blog.csdn.net/qw1233w)

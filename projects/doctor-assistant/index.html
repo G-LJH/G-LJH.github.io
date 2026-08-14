@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>医生智能助手 · 刘佳慧</title>
+  <meta name="description" content="基于 FastGPT 的专科医生智能体矩阵：知识库、工作流与企业微信接入。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/site.css" />
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="logo" href="../../">刘佳慧</a>
+    <nav class="nav">
+      <a href="../../#experience">经历</a>
+      <a href="../" aria-current="page">作品</a>
+      <a href="../../#contact">联系</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <header class="page-hero">
+      <p class="breadcrumb"><a href="../../">首页</a> / <a href="../">作品</a> / 医生智能助手</p>
+      <h1>医生智能助手</h1>
+      <p>面向医疗场景的专科 AI 智能体：医学问答、挂号指引、购药引导，经企业微信实现 7×24 患者咨询。</p>
+      <div class="detail-links">
+        <a class="btn btn-primary" href="http://114.55.140.84:3000/chat/share?shareId=n4R4kq8RvOX4SlesYAiz24I6" target="_blank" rel="noopener">在线体验</a>
+        <a class="btn btn-ghost" href="../">全部作品</a>
+      </div>
+    </header>
+
+    <article class="tile detail-prose">
+      <p>为多位不同专科医生定制 AI 助手。从科室调研到需求 / 流程 / 交互方案，基于 FastGPT 搭建智能体矩阵；建设专科知识库与 Prompt 策略，加入意图兜底与安全过滤，并接入企业微信患者端。沉淀标准化模板后，后续搭建周期约缩短 80%。</p>
+
+      <h2>公开体验（部分）</h2>
+      <ul>
+        <li><a href="http://114.55.140.84:3000/chat/share?shareId=n4R4kq8RvOX4SlesYAiz24I6" target="_blank" rel="noopener">医生 A</a></li>
+        <li><a href="http://114.55.140.84:3000/chat/share?shareId=x5ubK2jTYEAiylqyyrnQ1xau" target="_blank" rel="noopener">医生 B</a></li>
+        <li><a href="http://114.55.140.84:3000/chat/share?shareId=ssPea0cfK8txAusg5iTKC5hN" target="_blank" rel="noopener">医生 C</a></li>
+        <li><a href="http://114.55.140.84:3000/chat/share?shareId=qwAd7BTXVFeg45cb5dVPkRV0" target="_blank" rel="noopener">医生 D</a></li>
+      </ul>
+      <p>以上为公开体验链接；生产环境已集成至企业微信。</p>
+
+      <h2>对话界面</h2>
+      <figure class="detail-figure">
+        <img src="../../assets/images/doctor-assistant-UI.png" alt="医生智能助手对话界面" />
+        <figcaption>患者端对话与引用展示</figcaption>
+      </figure>
+
+      <h2>我做了什么</h2>
+      <ul>
+        <li><strong>需求分析</strong>：专科科室调研，对接一线医生，梳理核心业务逻辑</li>
+        <li><strong>知识工程</strong>：数据清洗与 Chunk 策略优化，RAG 检索精度提升至 90% 以上</li>
+        <li><strong>工作流编排</strong>：FastGPT 多分支条件节点，覆盖医学 / 导诊 / 购药等能力</li>
+        <li><strong>系统集成</strong>：封装企业微信中转服务，处理 Markdown 渲染兼容</li>
+      </ul>
+
+      <h2>工作流</h2>
+      <figure class="detail-figure">
+        <img src="../../assets/images/doctor-assistant-workflow.png" alt="医生智能助手 FastGPT 工作流" />
+        <figcaption>FastGPT 工作流编排</figcaption>
+      </figure>
+
+      <h2>亮点</h2>
+      <ul>
+        <li><strong>多专科定制</strong>：知识库独立、工作流与回答策略按专科定制</li>
+        <li><strong>企微深度集成</strong>：患者直接咨询，AI 自动承接常见问题，减轻医生接待负担</li>
+        <li><strong>完整 RAG 链路</strong>：文档清洗 → 向量化 → 检索增强，回答有据可查</li>
+      </ul>
+
+      <h2>技术栈</h2>
+      <ul>
+        <li>FastGPT 可视化编排 · RAG · 意图识别 · 多轮对话</li>
+        <li>医学知识库 · 企业微信 API</li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="../">← 返回作品列表</a></p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>
