@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BetterYeah AI 智能客服</title>
+  <style>
+    :root {
+      --cta: #7B61FF;
+      --cyan: #3EB5FF;
+      --ink: #1a2233;
+      --muted: rgba(26,34,51,.72);
+      --faint: rgba(26,34,51,.45);
+      --line: rgba(26,34,51,.1);
+      --bg: #fff;
+      --dark: #121024;
+      --max: 1110px;
+      --font: "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
+      --c1: rgba(42,211,211,.12);
+      --c2: rgba(123,97,255,.1);
+      --c3: rgba(62,181,255,.12);
+      --c4: rgba(255,204,68,.12);
+      --tag1: #95e9e9;
+      --tag2: #d6ccff;
+      --tag3: #c8e8ff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      font-size: 15px;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    /* Nav */
+    .nav {
+      position: sticky; top: 0; z-index: 50; height: 60px;
+      display: flex; align-items: center;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+    }
+    .nav.solid { border-bottom-color: var(--line); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      width: min(var(--max), calc(100% - 40px)); margin-inline: auto; gap: 16px;
+    }
+    .nav-logo { height: 24px; width: auto; }
+    .nav-links { display: flex; gap: 24px; font-size: 15px; color: var(--muted); font-weight: 500; }
+    .nav-links a:hover { color: var(--ink); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      font-size: 15px; font-weight: 600; border: none; cursor: pointer;
+      background: var(--cta); color: #fff;
+    }
+    .btn:hover { background: #6a52ef; }
+    .btn-lg { height: 50px; padding: 0 28px; font-size: 17px; min-width: 148px; }
+    .btn-ghost {
+      background: transparent; color: #fff;
+      border: 1px solid rgba(255,255,255,.35);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.08); }
+    .btn-outline {
+      background: transparent; color: var(--cta);
+      border: 1px solid rgba(123,97,255,.45);
+    }
+    .btn-outline:hover { background: rgba(123,97,255,.08); border-color: var(--cta); }
+    .btn-link {
+      display: inline-flex; align-items: center; gap: 4px;
+      margin-top: 14px; font-size: 14px; font-weight: 500; color: var(--cta);
+    }
+    .btn-link:hover { opacity: .85; }
+
+    /* Hero · v4 居中三件套 */
+    .hero {
+      text-align: center;
+      padding: 64px 0 0;
+      background:
+        radial-gradient(ellipse 50% 40% at 50% -10%, rgba(62,181,255,.14), transparent 60%),
+        linear-gradient(180deg, #F7F9FC, #fff 70%);
+    }
+    .hero h1 {
+      font-size: clamp(44px, 5vw, 56px);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 14px;
+    }
+    .hero-lead {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--muted);
+      max-width: 36em;
+      margin: 0 auto 28px;
+      line-height: 1.55;
+    }
+
+    /* 三句主张 · 智齿 bottom-box */
+    .pillar-bar {
+      margin: 28px auto 40px;
+      width: min(92%, var(--max));
+      display: flex;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      overflow: hidden;
+    }
+    .pillar-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 20px;
+      border-right: 1px solid var(--line);
+      transition: background .2s;
+    }
+    .pillar-item:last-child { border-right: none; }
+    .pillar-item:hover { background: rgba(90,216,216,.28); }
+    .pillar-item img {
+      width: 52px; height: 52px; flex-shrink: 0; border-radius: 12px;
+    }
+    .pillar-item h3 {
+      font-size: 24px; font-weight: 500; line-height: 1.2; margin-bottom: 5px;
+    }
+    .pillar-item p { font-size: 14px; color: var(--ink); opacity: .8; line-height: 1.45; }
+
+    /* Sections */
+    section.block { padding: 56px 0; }
+    .sec-head {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 28px; flex-wrap: wrap;
+    }
+    .sec-tag {
+      display: inline-flex; align-items: center; justify-content: center;
+      height: 38px; padding: 0 16px;
+      border: 1px solid var(--ink); border-radius: 60px;
+      font-size: 17px; font-weight: 500;
+    }
+    .sec-tag.t1 { background: var(--tag1); }
+    .sec-tag.t2 { background: var(--tag2); }
+    .sec-tag.t3 { background: var(--tag3); }
+    .sec-head h2 {
+      font-size: clamp(26px, 2.8vw, 32px);
+      font-weight: 500; line-height: 1.25;
+    }
+    /* 能力展示 */
+    .slab {
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .slab:last-child { margin-bottom: 0; }
+    .slab.flip { flex-direction: row-reverse; }
+    .slab.c1 { background: var(--c1); }
+    .slab.c2 { background: var(--c2); }
+    .slab.c3 { background: var(--c3); }
+    .slab.c4 { background: var(--c4); }
+    .slab.c-white {
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .slab-copy { width: 42%; flex-shrink: 0; }
+    .slab-media { width: 52%; flex-shrink: 0; }
+
+    .slab h3 {
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .slab .lead {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+    .slab .quote {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 10px 0 6px;
+    }
+    .bullets { display: flex; flex-direction: column; gap: 7px; }
+    .bullets li {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 15px; line-height: 1.55; color: var(--ink);
+    }
+    .bullets li::before {
+      content: "";
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--cta); margin-top: .55em; flex-shrink: 0;
+    }
+
+    .chain {
+      display: flex; flex-wrap: wrap; gap: 2px 0;
+      margin: 0 0 10px;
+      font-size: 13px; color: var(--faint);
+    }
+    .chain b { color: var(--ink); font-weight: 600; }
+    /* 媒体展示 */
+    .media-frame {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #f3f5f9;
+      border: 1px solid rgba(26,34,51,.08);
+      box-shadow: 0 4px 16px rgba(26,34,51,.05);
+    }
+    .media-frame.r43 { aspect-ratio: 4 / 3; }
+    .media-frame.r169 { aspect-ratio: 16 / 10; }
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    /* 需要完整展示、不裁切的示意：框随图高，避免白边 */
+    .media-frame.fit {
+      aspect-ratio: auto;
+    }
+    .media-frame.fit img {
+      height: auto;
+      object-fit: unset;
+    }
+
+    /* 半宽并排（智齿 item-type-two） */
+    .slab-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 0;
+    }
+    .slab-pair .slab {
+      margin: 0;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 22px 22px 20px;
+      gap: 16px;
+    }
+    .slab-pair .slab-copy,
+    .slab-pair .slab-media { width: 100%; }
+    .slab-pair h3 { font-size: 24px; }
+    .slab-pair .media-frame:not(.fit) { aspect-ratio: 16 / 10; }
+
+    /* 四自动：文为主，旁侧小图贴顶 */
+    .slab.compact-media .slab-media { width: 38%; }
+    .slab.compact-media .slab-copy { width: 56%; }
+    .slab.compact-media { align-items: flex-start; }
+    .auto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .auto-grid li {
+      background: rgba(255,255,255,.75);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+    .auto-grid .n { font-size: 12px; font-weight: 700; color: var(--cta); margin-bottom: 2px; }
+    .auto-grid strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+    .auto-grid p { font-size: 13px; color: var(--muted); line-height: 1.45; }
+
+    .mini-3 {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px;
+    }
+    .mini-3 li {
+      background: rgba(255,255,255,.75);
+      border-radius: 8px; padding: 10px;
+    }
+    .mini-3 strong { display: block; font-size: 14px; margin-bottom: 2px; }
+    .mini-3 p { font-size: 13px; color: var(--muted); }
+    .platforms {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px;
+      margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line);
+    }
+    .platforms span { font-size: 13px; color: var(--faint); }
+    .platforms img { height: 32px; width: auto; }
+
+    .basics {
+      padding: 18px 0;
+      background:
+        linear-gradient(90deg, rgba(62,181,255,.08), rgba(123,97,255,.08)),
+        #F7F9FC;
+      color: var(--ink);
+    }
+    .basics-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      min-height: 86px;
+      padding: 16px 28px;
+      border: 1px solid rgba(123,97,255,.14);
+      border-radius: 16px;
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 10px 28px rgba(26,34,51,.05);
+    }
+    .basics-mark {
+      position: relative;
+      flex: 0 0 auto;
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0;
+      color: transparent;
+      background: linear-gradient(135deg, #3EB5FF 0%, #7B61FF 58%, #9A56FF 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    .basics-mark::after {
+      content: "";
+      position: absolute;
+      inset: -9px -14px;
+      border: 1px solid rgba(123,97,255,.22);
+      border-radius: 999px;
+      opacity: .75;
+    }
+    .basics-copy strong {
+      display: block;
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 4px;
+      letter-spacing: 0;
+    }
+    .basics-copy span {
+      display: block;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* Cases · 上图下文 */
+    .cases-head { margin-bottom: 22px; max-width: 520px; }
+    .cases-head h2 {
+      font-size: clamp(26px, 2.8vw, 32px);
+      font-weight: 500; margin-bottom: 8px;
+    }
+    .cases-head p { font-size: 15px; color: var(--muted); line-height: 1.55; }
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .case-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      gap: 0;
+      min-height: 0;
+      transition: border-color .22s ease, box-shadow .22s ease, transform .22s ease;
+    }
+    .case-card .case-media {
+      width: 132px;
+      flex-shrink: 0;
+      background: #eef5ff;
+      overflow: hidden;
+    }
+    .case-card .case-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 140px;
+      object-fit: cover;
+      display: block;
+      transition: transform .22s ease;
+    }
+    @media (hover: hover) {
+      .case-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(26,34,51,.18);
+        box-shadow: 0 12px 28px rgba(26,34,51,.08);
+      }
+      .case-card:hover .case-media img {
+        transform: scale(1.04);
+      }
+    }
+    .case-card:active {
+      border-color: rgba(26,34,51,.16);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .case-card,
+      .case-card .case-media img { transition: border-color .22s ease; }
+      .case-card:hover { transform: none; box-shadow: none; }
+      .case-card:hover .case-media img { transform: none; }
+    }
+    .case-card .case-body { padding: 16px 16px 18px; flex: 1; min-width: 0; }
+    .case-card .tag {
+      font-size: 13px; font-weight: 600; color: var(--cta);
+      margin-bottom: 6px; display: inline-block;
+    }
+    .case-card h3 {
+      font-size: 17px; font-weight: 600; margin-bottom: 8px; line-height: 1.4;
+    }
+    .case-card .pain,
+    .case-card .value,
+    .case-card .result {
+      font-size: 13px; color: var(--muted); line-height: 1.55; margin-bottom: 4px;
+    }
+    .case-card .end {
+      margin-top: 10px; padding-top: 10px;
+      border-top: 1px solid var(--line);
+      font-size: 14px; font-weight: 600;
+    }
+
+    .marquee-wrap {
+      margin-top: 24px; overflow: hidden;
+      border-top: 1px solid var(--line); padding-top: 20px;
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .marquee-track {
+      display: flex; width: max-content; gap: 52px; align-items: center;
+      animation: marquee 36s linear infinite;
+    }
+    .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+    .marquee-track img { height: 52px; width: auto; opacity: .88; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .trust {
+      margin-top: 18px;
+      display: flex; flex-wrap: wrap; gap: 6px 16px;
+      font-size: 13px; color: var(--muted);
+    }
+    .trust span::before {
+      content: ""; display: inline-block;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--cyan); margin-right: 6px; vertical-align: middle;
+    }
+
+    /* 服务合作 · 2 周免费试用（浅冷色圆角大卡） */
+    .trial-panel {
+      background:
+        radial-gradient(ellipse 70% 60% at 12% 0%, rgba(62,181,255,.14), transparent 55%),
+        radial-gradient(ellipse 50% 50% at 100% 100%, rgba(123,97,255,.1), transparent 50%),
+        #F0F6FC;
+      color: var(--ink);
+      border-radius: 20px;
+      border: 1px solid rgba(62,181,255,.22);
+      box-shadow: 0 12px 36px rgba(26,34,51,.05);
+      padding: 40px 40px 36px;
+    }
+    .trial-head { margin-bottom: 28px; }
+    .trial-head .sec-tag {
+      margin-bottom: 16px;
+      background: var(--tag3);
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+    .trial-head h2 {
+      font-size: clamp(22px, 2.2vw, 28px);
+      font-weight: 600;
+      line-height: 1.35;
+      margin-bottom: 10px;
+      white-space: nowrap;
+      letter-spacing: -.01em;
+      color: var(--ink);
+    }
+    .trial-head p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 42em;
+    }
+    .trial-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-bottom: 32px;
+      list-style: none;
+      padding: 0;
+      position: relative;
+    }
+    .trial-steps::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: 8%;
+      right: 8%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(62,181,255,.45), rgba(123,97,255,.35), transparent);
+      pointer-events: none;
+    }
+    .trial-step {
+      position: relative;
+      padding: 0 14px 0 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+    }
+    .trial-step .n {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, #3EB5FF, #7B61FF);
+      border: 2px solid #fff;
+      box-shadow: 0 2px 8px rgba(62,181,255,.25);
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .trial-step .phase {
+      font-size: 12px;
+      font-weight: 500;
+      color: #2a9ecf;
+      margin-bottom: 4px;
+    }
+    .trial-step h3 {
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.35;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .trial-step p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .trial-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    /* 收尾 CTA / 悬浮 / 页脚 */
+    .cta-dark {
+      background: var(--dark);
+      color: #fff;
+      padding: 72px 0;
+      text-align: center;
+    }
+    .cta-dark h2 {
+      font-size: clamp(26px, 2.8vw, 32px);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .cta-dark p { color: rgba(255,255,255,.68); margin-bottom: 24px; font-size: 15px; }
+    .cta-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    .float-dock {
+      position: fixed; right: 18px; bottom: 28px; z-index: 60;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .float-item {
+      width: 88px; padding: 10px 8px;
+      background: #fff; border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(24,24,48,.1);
+      text-align: center;
+      font-size: 12px; font-weight: 600; color: var(--ink);
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .float-item:hover { border-color: var(--cta); color: var(--cta); }
+    .float-pop {
+      display: none;
+      position: absolute; right: 100%; top: 0;
+      margin-right: 10px;
+      background: #fff; border: 1px solid var(--line);
+      border-radius: 10px; padding: 12px;
+      box-shadow: 0 8px 24px rgba(24,24,48,.12);
+      width: 140px;
+    }
+    .float-item:hover .float-pop,
+    .float-item:focus-within .float-pop { display: block; }
+    .float-pop img { width: 100%; height: auto; }
+    .float-pop p { font-size: 11px; color: var(--faint); margin-top: 6px; font-weight: 400; text-align: center; }
+    .float-wrap { position: relative; }
+
+    .site-footer {
+      background: #0e0e1a;
+      color: rgba(255,255,255,.7);
+      padding: 48px 0 24px;
+      font-size: 13px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr auto;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+    .site-footer h4 { color: #fff; font-size: 14px; margin-bottom: 12px; }
+    .site-footer a { color: rgba(255,255,255,.62); }
+    .site-footer a:hover { color: #fff; }
+    .footer-links { display: flex; flex-direction: column; gap: 8px; }
+    .footer-qr { display: flex; gap: 16px; }
+    .footer-qr figure { text-align: center; }
+    .footer-qr img {
+      width: 88px; height: 88px; object-fit: contain;
+      background: #fff; border-radius: 8px; padding: 4px;
+    }
+    .footer-qr figcaption { font-size: 11px; margin-top: 6px; color: rgba(255,255,255,.45); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 16px;
+      display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      font-size: 12px; color: rgba(255,255,255,.4);
+    }
+
+    .reveal { opacity: 0; transform: translateY(10px); transition: opacity .45s ease, transform .45s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (max-width: 960px) {
+      .nav-links, .float-dock { display: none; }
+      .pillar-bar { flex-direction: column; }
+      .pillar-item { border-right: none; border-bottom: 1px solid var(--line); }
+      .slab, .slab.flip { flex-direction: column; padding: 20px; }
+      .slab-copy, .slab-media,
+      .slab.compact-media .slab-copy,
+      .slab.compact-media .slab-media { width: 100%; }
+      .slab-pair, .case-grid, .footer-grid, .auto-grid, .mini-3 {
+        grid-template-columns: 1fr;
+      }
+      .trial-steps { grid-template-columns: 1fr 1fr; gap: 20px 16px; }
+      .trial-steps::before { display: none; }
+      .trial-panel { padding: 28px 22px 24px; }
+      .trial-head h2 {
+        white-space: normal;
+        font-size: 22px;
+      }
+      .basics-card {
+        justify-content: flex-start;
+        padding: 18px 22px;
+      }
+      .case-card { flex-direction: column; }
+      .case-card .case-media { width: 100%; height: 120px; }
+      .case-card .case-media img { min-height: 120px; }
+      .hero { padding-top: 48px; }
+      section.block { padding: 40px 0; }
+    }
+    @media (max-width: 560px) {
+      .trial-steps { grid-template-columns: 1fr; }
+      .basics-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top"><img class="nav-logo" src="assets/brand/betteryeah-logo-on-light.png" alt="BetterYeah" /></a>
+      <nav class="nav-links">
+        <a href="#capability">会干活</a>
+        <a href="#growth">会成长</a>
+        <a href="#scale">铺得开</a>
+        <a href="#cases">客户案例</a>
+        <a href="#trial">服务合作</a>
+      </nav>
+      <a class="btn" href="https://customer-servhub.betteryeah.com/" target="_blank" rel="noopener">立即体验</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <h1>AI 智能客服</h1>
+        <p class="hero-lead">接住复杂咨询与售后闭环 · 业务可掌控 · 能力可规模化复制</p>
+        <a class="btn btn-lg" href="https://customer-servhub.betteryeah.com/" target="_blank" rel="noopener">立即体验</a>
+      </div>
+
+      <div class="pillar-bar">
+        <a class="pillar-item" href="#capability">
+          <img src="assets/generated/capabilities/icon-work.svg" alt="" />
+          <div>
+            <h3>会干活</h3>
+            <p>复杂咨询接得住；把事办掉，不只把话说完</p>
+          </div>
+        </a>
+        <a class="pillar-item" href="#growth">
+          <img src="assets/generated/capabilities/icon-growth.svg" alt="" />
+          <div>
+            <h3>会成长</h3>
+            <p>业务自己能改；学习 · 测试 · 优化，越用越好</p>
+          </div>
+        </a>
+        <a class="pillar-item" href="#scale">
+          <img src="assets/generated/capabilities/icon-scale.svg" alt="" />
+          <div>
+            <h3>铺得开</h3>
+            <p>多平台多店一套底座；大促峰值顶得住</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 会干活 -->
+    <section class="block" id="capability">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-tag t1">会干活</span>
+          <h2>深入电商场景，推进全链路业务</h2>
+        </div>
+
+        <!-- 横排：文左图右 -->
+        <article class="slab c1 reveal">
+          <div class="slab-copy">
+            <h3>听得懂场景，售前能推动</h3>
+            <p class="lead">听懂客户处在什么场景、要什么，再按业务把对话往成交推——不是答完一句就停。</p>
+            <div class="chain">
+              <b>① 进线</b> → <b>② 探需</b> → <b>③ 推荐</b> → <b>④ 促单</b> → <b>⑤ 再推荐</b> → <b>⑥ 发链·邀评</b>
+            </div>
+            <ul class="bullets">
+              <li>进线探需，精准推荐</li>
+              <li>主动促单与再推荐</li>
+              <li>发链接、邀评，闭环到成交</li>
+            </ul>
+          </div>
+          <div class="slab-media">
+            <div class="media-frame fit">
+              <img src="assets/story/卖点一/00-全链路六步总览.png" alt="售前全链路六步" />
+            </div>
+          </div>
+        </article>
+
+        <!-- 横排翻转：图左文右 -->
+        <article class="slab c2 flip reveal">
+          <div class="slab-copy">
+            <h3>系统能办事</h3>
+            <p class="lead">对接订单、物流、工单等内部系统：查物流、改订单、走退换——真正办事，而非只问答。</p>
+            <p class="quote">把事办掉，不只把话说完。</p>
+            <ul class="bullets">
+              <li>查物流</li>
+              <li>改订单</li>
+              <li>走退换</li>
+            </ul>
+          </div>
+          <div class="slab-media">
+            <div class="media-frame fit">
+              <img src="assets/generated/capabilities/capability-system-action.png" alt="查物流、改订单、走退换并办好" />
+            </div>
+          </div>
+        </article>
+
+        <!-- 半宽竖排并排：商品推荐 + 会话示例 -->
+        <div class="slab-pair reveal">
+          <article class="slab c3">
+            <div class="slab-copy">
+              <h3>智能商品推荐</h3>
+              <p class="lead">可卖货、主动营销。商品知识学习 + 产品图谱，识别卖点、新老款联推。</p>
+              <ul class="bullets">
+                <li>可卖货、主动营销</li>
+                <li>商品知识学习</li>
+                <li>产品图谱 · 卖点识别 · 新老款联推</li>
+              </ul>
+            </div>
+            <div class="slab-media">
+              <div class="media-frame r169">
+                <img src="assets/generated/capabilities/capability-product-recommendation.png" alt="智能商品推荐：从客户需求到主推与搭配推荐" />
+              </div>
+            </div>
+          </article>
+          <article class="slab c4">
+            <div class="slab-copy">
+              <h3>真实接待可复盘</h3>
+              <p class="lead">复杂多轮跟得完；该转人时带上下文转出，过程可追溯。</p>
+              <ul class="bullets">
+                <li>多轮上下文不断档</li>
+                <li>转人工带完整上下文</li>
+                <li>会话可回溯、可优化</li>
+              </ul>
+            </div>
+            <div class="slab-media">
+              <div class="media-frame r169">
+                <img src="assets/generated/capabilities/capability-replay.png" alt="真实接待过程可复盘" />
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 会成长 -->
+    <section class="block" id="growth" style="background:#F8F6FF">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-tag t2">会成长</span>
+          <h2>好用靠自动跑起来，成长靠业务能进化</h2>
+        </div>
+
+        <!-- 横排：文为主 + 旁侧小图贴顶 -->
+        <article class="slab c2 compact-media reveal">
+          <div class="slab-copy">
+            <h3>四个自动，让客服 Agent 自己跑起来</h3>
+            <p class="lead">无需整理文档 · 无需配置流程 · 无需人工训练。系统自动解析商品与历史聊天，达标后上线接待。</p>
+            <ul class="auto-grid">
+              <li>
+                <div class="n">01</div>
+                <strong>自动创建</strong>
+                <p>最快约 30 分钟完成基础搭建</p>
+              </li>
+              <li>
+                <div class="n">02</div>
+                <strong>自动学习</strong>
+                <p>知识随店铺一起更新</p>
+              </li>
+              <li>
+                <div class="n">03</div>
+                <strong>自动测试</strong>
+                <p>达标才上线</p>
+              </li>
+              <li>
+                <div class="n">04</div>
+                <strong>自动接待</strong>
+                <p>人工只需应对复杂场景</p>
+              </li>
+            </ul>
+          </div>
+          <div class="slab-media">
+            <div class="media-frame fit">
+              <img src="assets/story/卖点二/00-四个自动.png" alt="四个自动示意" />
+            </div>
+          </div>
+        </article>
+
+        <!-- 横排翻转 -->
+        <article class="slab c1 flip reveal">
+          <div class="slab-copy">
+            <h3>越用越好，主管自己就能进化 Agent</h3>
+            <p class="lead">把控制权交回业务：客服主管用自然语言就能持续进化它。</p>
+            <p class="quote">把维护 Agent 的能力交还给最懂业务的人。</p>
+            <ul class="mini-3">
+              <li><strong>看清</strong><p>对话全程可溯源</p></li>
+              <li><strong>改掉</strong><p>大白话改 → 验证 → 上线</p></li>
+              <li><strong>留下</strong><p>沉淀为 Skill</p></li>
+            </ul>
+          </div>
+          <div class="slab-media">
+            <div class="media-frame fit">
+              <img src="assets/story/卖点二/01-客服优化助手.png" alt="客服优化助手" />
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 铺得开 -->
+    <section class="block" id="scale">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-tag t3">铺得开</span>
+          <h2>一套底座，多店复用，峰值顶得住</h2>
+        </div>
+
+        <article class="slab c3 reveal">
+          <div class="slab-copy">
+            <h3>多平台接入，一套底座统一管理</h3>
+            <p class="lead">多平台、多店铺、多品牌，一套底座统一管理；知识库一次维护、全渠道复用。</p>
+            <p class="quote">一次建设，全网复用。改一条，处处生效。</p>
+            <div class="platforms">
+              <span>覆盖</span>
+              <img src="assets/platforms/taobao.png" alt="淘宝" />
+              <img src="assets/platforms/jd.png" alt="京东" />
+              <img src="assets/platforms/pinduoduo.png" alt="拼多多" />
+              <img src="assets/platforms/douyin.png" alt="抖音" />
+              <img src="assets/platforms/wechat-miniprogram.png" alt="微信小程序" />
+            </div>
+          </div>
+          <div class="slab-media">
+            <div class="media-frame fit">
+              <img src="assets/story/卖点三/01-多平台多店铺统一管理.png" alt="多店铺统一管理" />
+            </div>
+          </div>
+        </article>
+
+        <!-- 半宽竖排并排 -->
+        <div class="slab-pair reveal">
+          <article class="slab c1">
+            <div class="slab-copy">
+              <h3>售前、售中、售后全场景</h3>
+              <p class="lead">二十余类意图一网打尽。从商品咨询到退换售后——一个 Agent 统一接住。</p>
+              <ul class="bullets">
+                <li><b>售前</b> · 咨询、推荐、活动…</li>
+                <li><b>售中</b> · 下单、物流、改单…</li>
+                <li><b>售后</b> · 退换、运费、发票…</li>
+              </ul>
+            </div>
+            <div class="slab-media">
+              <div class="media-frame fit">
+                <img src="assets/story/卖点三/02-全场景意图覆盖.png" alt="全场景意图" />
+              </div>
+            </div>
+          </article>
+          <article class="slab c4">
+            <div class="slab-copy">
+              <h3>大促峰值顶得住</h3>
+              <p class="lead">大促、直播流量陡增时，AI 产能可弹性顶上——不靠临时扩编。</p>
+              <ul class="bullets">
+                <li>高峰顶得住，低谷可收</li>
+                <li>全局看板持续优化</li>
+              </ul>
+              <p class="quote">大促 AI 顶上，不靠临时扩编。</p>
+            </div>
+            <div class="slab-media">
+              <div class="media-frame fit">
+                <img src="assets/generated/capabilities/capability-peak-capacity.png" alt="多店进线时弹性扩容并稳定接待" />
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="basics">
+      <div class="wrap">
+        <div class="basics-card">
+          <div class="basics-mark">7×24</div>
+          <div class="basics-copy">
+            <strong>夜间在线，大促高峰也不断线</strong>
+            <span>夜间、大促、直播峰值，持续承接每一次进线。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="block" id="cases" style="background:#F7F9FC">
+      <div class="wrap">
+        <div class="cases-head reveal">
+          <h2>已被中大型电商品牌验证过</h2>
+          <p>面向多平台、多品牌、多店铺——复杂咨询接得住，售后能推进，多店可复用，大促可顶上。</p>
+        </div>
+
+        <div class="case-grid reveal">
+          <article class="case-card">
+            <div class="case-media">
+              <img src="assets/cases/百丽-门店实景.jpeg" alt="" />
+            </div>
+            <div class="case-body">
+              <span class="tag">某时尚鞋服集团 · 会干活</span>
+              <h3>AI 能卖货，不只是省人力</h3>
+              <p class="pain">多品牌并行，大促峰值压力大，怕 AI 接不住砸转化。</p>
+              <p class="value">按品牌统一接待，售前高比例独立解决，询单往成交推。</p>
+              <p class="result">售前接待能力达到高位，转化表现接近优秀客服水平。</p>
+              <div class="end">→ AI 能卖货，不只是省人力。</div>
+            </div>
+          </article>
+          <article class="case-card">
+            <div class="case-media">
+              <img src="assets/generated/cases/fashion-store.jpg" alt="" />
+            </div>
+            <div class="case-body">
+              <span class="tag">某百货 / 快时尚集团 · 会成长</span>
+              <h3>越铺越省，还能出单</h3>
+              <p class="pain">店多、SKU 多，知识按店维护成本线性涨。</p>
+              <p class="value">商品自动学习；改一条可处处生效。</p>
+              <p class="result">接待成本明显下降，转化表现进入店铺前列。</p>
+              <div class="end">→ 越铺越省，还能出单。</div>
+            </div>
+          </article>
+          <article class="case-card">
+            <div class="case-media">
+              <img src="assets/generated/cases/beauty-counter.jpg" alt="" />
+            </div>
+            <div class="case-body">
+              <span class="tag">某美妆头部品牌 · 铺得开</span>
+              <h3>店铺得开，大促顶得住</h3>
+              <p class="pain">跨平台多店，大促峰谷明显，运维不能随店数膨胀。</p>
+              <p class="value">统一底座复用；峰值弹性调度。</p>
+              <p class="result">短周期多店铺开；大促 AI 顶上、不靠临时扩编。</p>
+              <div class="end">→ 店铺得开，大促顶得住。</div>
+            </div>
+          </article>
+          <article class="case-card">
+            <div class="case-media">
+              <img src="assets/generated/cases/smart-home.jpg" alt="" />
+            </div>
+            <div class="case-body">
+              <span class="tag">某家装品牌 · 售后</span>
+              <h3>把事办掉，不只把话说完</h3>
+              <p class="pain">售后条件多、多轮追问，易念完规则就转人工。</p>
+              <p class="value">复杂多轮能跟完；对接订单/物流/工单往前推。</p>
+              <p class="result">可持续推进到办结或精准交接。</p>
+              <div class="end">→ 把事办掉，不只把话说完。</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="marquee-wrap reveal" aria-label="合作客户">
+          <div class="marquee-track">
+            <img src="assets/logos/百丽国际-belle.png" alt="" />
+            <img src="assets/logos/三福-sanfu.png" alt="" />
+            <img src="assets/logos/自然堂-chcedo.png" alt="" />
+            <img src="assets/logos/苏泊尔-supor.png" alt="" />
+            <img src="assets/logos/十月结晶-tenm-journey.png" alt="" />
+            <img src="assets/logos/鱼跃-yuwell.png" alt="" />
+            <img src="assets/logos/基诺浦-ginoble.png" alt="" />
+            <img src="assets/logos/万益蓝-wonderlab.png" alt="" />
+            <img src="assets/logos/联想-lenovo.png" alt="" />
+            <img src="assets/logos/倍思-baseus.png" alt="" />
+            <img src="assets/logos/无印良品-natural-mill.png" alt="" />
+            <img src="assets/logos/凤凰.png" alt="" />
+            <img src="assets/logos/德施曼-dessmann.png" alt="" />
+            <img src="assets/logos/百丽国际-belle.png" alt="" />
+            <img src="assets/logos/三福-sanfu.png" alt="" />
+            <img src="assets/logos/自然堂-chcedo.png" alt="" />
+            <img src="assets/logos/苏泊尔-supor.png" alt="" />
+            <img src="assets/logos/十月结晶-tenm-journey.png" alt="" />
+            <img src="assets/logos/鱼跃-yuwell.png" alt="" />
+            <img src="assets/logos/基诺浦-ginoble.png" alt="" />
+            <img src="assets/logos/万益蓝-wonderlab.png" alt="" />
+            <img src="assets/logos/联想-lenovo.png" alt="" />
+            <img src="assets/logos/倍思-baseus.png" alt="" />
+            <img src="assets/logos/无印良品-natural-mill.png" alt="" />
+            <img src="assets/logos/凤凰.png" alt="" />
+            <img src="assets/logos/德施曼-dessmann.png" alt="" />
+          </div>
+        </div>
+
+        <div class="trust reveal">
+          <span>商品与历史对话进入知识，可持续更新</span>
+          <span>自动测试，达标后再上线</span>
+          <span>答错可发现、可修复；当天能改</span>
+          <span>该转人工时带上下文转出</span>
+        </div>
+      </div>
+    </section>
+    <!-- 服务合作 -->
+    <section class="block" id="trial">
+      <div class="wrap">
+        <div class="trial-panel reveal">
+          <div class="trial-head">
+            <span class="sec-tag">服务合作</span>
+            <h2>从 2 周免费试用开始，用真实数据决定下一步</h2>
+            <p>不用先签约、先付费。导入你的真实店铺数据跑一轮，看得见效果，再谈合作。</p>
+          </div>
+
+          <ol class="trial-steps">
+            <li class="trial-step">
+              <div class="n">01</div>
+              <div class="phase">Day 1–3</div>
+              <h3>准备期</h3>
+              <p>导入历史记录与商品链接，系统自动生成初始知识库与业务 SOP。</p>
+            </li>
+            <li class="trial-step">
+              <div class="n">02</div>
+              <div class="phase">Day 4–7</div>
+              <h3>测试期</h3>
+              <p>用自动测试集内部验收，自然语言调整转人工边界。</p>
+            </li>
+            <li class="trial-step">
+              <div class="n">03</div>
+              <div class="phase">Week 2</div>
+              <h3>灰度上线</h3>
+              <p>接入 10%–20% 真实流量，观察独立解决率与转化，持续诊断修复。</p>
+            </li>
+            <li class="trial-step">
+              <div class="n">04</div>
+              <div class="phase">试用结束</div>
+              <h3>评估决策</h3>
+              <p>基于服务质量、转化表现、维护成本，决定是否全量铺开。</p>
+            </li>
+          </ol>
+
+          <div class="trial-actions">
+            <a class="btn btn-lg" href="https://customer-servhub.betteryeah.com/" target="_blank" rel="noopener">立即体验</a>
+            <a class="btn btn-lg btn-outline" href="#contact">预约演示</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 深色收束 -->
+    <section class="cta-dark" id="cta">
+      <div class="wrap">
+        <h2>把服务能力从人力规模里解耦出来</h2>
+        <p>一键启程，用真实店铺验证会干活、会成长、铺得开。</p>
+        <div class="cta-actions">
+          <a class="btn btn-lg" href="https://customer-servhub.betteryeah.com/" target="_blank" rel="noopener">立即体验</a>
+          <a class="btn btn-lg btn-ghost" href="#contact">预约演示</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- 右侧悬浮 -->
+  <aside class="float-dock" aria-label="快捷联系">
+    <div class="float-wrap">
+      <a class="float-item" href="#contact">预约演示</a>
+    </div>
+    <div class="float-wrap">
+      <button type="button" class="float-item" style="width:88px;font:inherit">
+        加入社群
+        <div class="float-pop">
+          <img src="assets/qr/website-qr-code.png" alt="社群二维码" />
+          <p>微信扫一扫</p>
+        </div>
+      </button>
+    </div>
+    <div class="float-wrap">
+      <button type="button" class="float-item" style="width:88px;font:inherit">
+        联系我们
+        <div class="float-pop">
+          <img src="assets/qr/dingding-qrcode-new.png" alt="钉钉二维码" />
+          <p>钉钉扫一扫</p>
+        </div>
+      </button>
+    </div>
+  </aside>
+
+  <footer class="site-footer" id="contact">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>BetterYeah</h4>
+          <p>面向中大型电商品牌的全托管客服 Agent。<br />接住复杂咨询，业务可掌控，能力可规模化复制。</p>
+        </div>
+        <div>
+          <h4>产品</h4>
+          <div class="footer-links">
+            <a href="#">Agent</a>
+            <a href="#">工作流</a>
+            <a href="#">知识库</a>
+            <a href="https://customer-servhub.betteryeah.com/" target="_blank" rel="noopener">AI 客服</a>
+          </div>
+        </div>
+        <div>
+          <h4>支持</h4>
+          <div class="footer-links">
+            <a href="#">帮助中心</a>
+            <a href="#">关于我们</a>
+            <a href="#contact">联系我们</a>
+          </div>
+        </div>
+        <div class="footer-qr">
+          <figure>
+            <img src="assets/qr/website-qr-code.png" alt="公众号" />
+            <figcaption>公众号</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/qr/dingding-qrcode-new.png" alt="钉钉社群" />
+            <figcaption>钉钉社群</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Copyright © BetterYeah · 斑头雁(杭州)智能科技有限责任公司</span>
+        <span>浙ICP备2022000025号</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById("nav");
+    const onScroll = () => nav.classList.toggle("solid", scrollY > 6);
+    onScroll();
+    addEventListener("scroll", onScroll, { passive: true });
+
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
