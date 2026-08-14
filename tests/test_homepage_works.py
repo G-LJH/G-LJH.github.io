@@ -22,24 +22,37 @@ class HomepageWorksTest(unittest.TestCase):
         self.assertNotIn(-1, positions)
         self.assertEqual(positions, sorted(positions))
 
-    def test_section_has_six_linked_text_cards_and_clear_instruction(self):
+    def test_section_has_four_projects_and_more_card(self):
         self.assertIn("点击卡片查看详情", self.section)
-        self.assertEqual(self.section.count('class="tile work-card'), 6)
+        self.assertEqual(self.section.count('class="tile work-card'), 4)
         for href in [
             "projects/agent-for-you/",
             "projects/doctor-assistant/",
             "projects/betteryeah-ai-cs/",
             "projects/fastgpt-agent-tester/",
-            "projects/wecom-archive/",
-            "projects/niuke-ai-coach/",
         ]:
             self.assertIn(f'href="{href}"', self.section)
+        self.assertNotIn('href="projects/wecom-archive/"', self.section)
+        self.assertNotIn('href="projects/niuke-ai-coach/"', self.section)
+        self.assertIn('class="tile works-more-card"', self.section)
+        self.assertIn('href="projects/"', self.section)
+        self.assertIn("查看更多作品", self.section)
 
     def test_homepage_works_section_is_text_only(self):
         self.assertNotIn("<img", self.section)
         self.assertNotIn("work-thumb", self.section)
-        for number in ["01", "02", "03", "04", "05", "06"]:
+        for number in ["01", "02", "03", "04"]:
             self.assertIn(f">{number}<", self.section)
+        self.assertNotIn(">05<", self.section)
+        self.assertNotIn(">06<", self.section)
+
+    def test_agent_for_you_card_uses_the_same_light_style_as_other_cards(self):
+        href_position = self.section.index('href="projects/agent-for-you/"')
+        tag_start = self.section.rfind("<a", 0, href_position)
+        tag_end = self.section.index(">", href_position)
+        agent_card_tag = self.section[tag_start : tag_end + 1]
+        self.assertIn('class="tile work-card"', agent_card_tag)
+        self.assertNotIn("work-card-featured", agent_card_tag)
 
     def test_styles_cover_grid_focus_mobile_and_reduced_motion(self):
         self.assertIn(".works-grid {", self.css)
@@ -51,6 +64,16 @@ class HomepageWorksTest(unittest.TestCase):
         self.assertIn(".works-grid", mobile)
         self.assertIn("grid-template-columns: 1fr;", mobile)
         self.assertIn("@media (prefers-reduced-motion: reduce)", self.css)
+
+    def test_more_card_is_light_full_width_and_keyboard_accessible(self):
+        self.assertIn(".works-more-card {", self.css)
+        self.assertIn("grid-column: 1 / -1;", self.css)
+        self.assertIn(".works-more-card:focus-visible", self.css)
+        more_card_start = self.css.index(".works-more-card {")
+        more_card_end = self.css.index("}", more_card_start)
+        more_card_rule = self.css[more_card_start:more_card_end]
+        self.assertNotIn("#101522", more_card_rule)
+        self.assertNotIn("#19243b", more_card_rule)
 
 
 if __name__ == "__main__":

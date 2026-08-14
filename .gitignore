@@ -2,3 +2,7 @@
 .bundle
 node_modules
 package.json
+discussion/
+docs/
+.superpowers/
+tmp/

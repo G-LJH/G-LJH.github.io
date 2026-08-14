@@ -88,6 +88,14 @@ class BetterYeahPortfolioTest(unittest.TestCase):
             if target:
                 self.assertTrue(target.is_file(), target)
 
+    def test_detail_page_prioritizes_full_demo_over_screenshots(self):
+        self.assertTrue(DETAIL.is_file())
+        html = DETAIL.read_text(encoding="utf-8")
+        self.assertIn('class="btn btn-primary case-demo-primary"', html)
+        self.assertIn('class="case-preview-grid"', html)
+        self.assertEqual(html.count('class="detail-figure case-preview-item"'), 4)
+        self.assertNotIn('class="case-gallery"', html)
+
     def test_public_pages_link_to_detail(self):
         for page_path in [ROOT / "index.html", ROOT / "projects" / "index.html"]:
             page = parse(page_path)
