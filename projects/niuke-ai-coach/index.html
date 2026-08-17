@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>牛客 AI 面试教练 · 刘佳慧</title>
-  <meta name="description" content="基于大模型的面试教练：解析简历与 JD，生成多模块面试准备报告。" />
+  <meta name="description" content="自动抓取面经、解析简历与 JD，生成 8 大模块个性化面试准备报告的 Agent 应用。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -23,46 +23,87 @@
   </header>
 
   <main class="shell">
-    <header class="page-hero">
-      <p class="breadcrumb"><a href="../../">首页</a> / <a href="../">作品</a> / 面试教练</p>
+    <header class="page-hero case-hero">
+      <p class="breadcrumb"><a href="../../">首页</a> / <a href="../">作品</a> / 牛客 AI 面试教练</p>
       <h1>牛客 AI 面试教练</h1>
-      <p>自动抓取面经、解析简历与 JD，生成 8 大模块个性化面试准备报告。</p>
+      <p>求职准备要对齐面经、简历与 JD，却极度重复——换一个岗就从头再来。做成一条长流程 Agent：自动抓取面经、解析简历与 JD，生成 <strong>8</strong> 大模块个性化准备报告。</p>
+      <div class="case-meta" aria-label="项目标签">
+        <span>Agent 应用</span>
+        <span>长流程任务</span>
+        <span>报告生成</span>
+        <span>开源可跑</span>
+      </div>
       <div class="detail-links">
-        <a class="btn btn-primary" href="https://github.com/G-LJH/niuke-ai-coach" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-primary" href="https://github.com/G-LJH/niuke-ai-coach" target="_blank" rel="noopener">查看 GitHub</a>
         <a class="btn btn-ghost" href="../">全部作品</a>
       </div>
     </header>
 
-    <article class="tile detail-prose">
-      <p>基于阿里百炼大模型的面试教练：抓取牛客面经、结构化解析简历，并结合 JD 生成可导出的个性化准备报告。初衷是减少求职准备中的重复劳动。</p>
+    <article class="tile detail-prose case-study">
+      <h2>背景与问题</h2>
+      <p>面经在网站、简历是 PDF、JD 经常是截图——准备一次岗位要手工搬运多次。企业侧已经在用 AI 筛人；个人侧若仍靠复制粘贴，效率差距会被拉大。这个项目要解决的是<strong>可重复的准备流水线</strong>，不是再写一篇「面试经验博客」。</p>
 
-      <h2>Web 界面</h2>
-      <figure class="detail-figure">
-        <img src="../../assets/images/niuke-ai-coach-web-ui.png" alt="牛客 AI 面试教练 Web 界面" />
-        <figcaption>配置页与报告入口</figcaption>
-      </figure>
+      <div class="case-brief">
+        <div>
+          <strong>输入足够杂</strong>
+          <span>岗位名、JD 文本/截图、简历 PDF、面经抓取数量。</span>
+        </div>
+        <div>
+          <strong>输出足够结构化</strong>
+          <span>8 大模块报告，可按模块查看并导出 Markdown。</span>
+        </div>
+      </div>
 
-      <h2>报告示例</h2>
-      <figure class="detail-figure">
-        <img src="../../assets/images/niuke-ai-coach-report.png" alt="面试准备报告截图" />
-        <figcaption>生成报告截图</figcaption>
-      </figure>
+      <h2>三个关键判断</h2>
+      <div class="case-thinking">
+        <article>
+          <p class="eyebrow">01 · 流程</p>
+          <h3>杂输入进同一条流水线</h3>
+          <p>爬虫、PDF 解析、OCR 都为同一目标服务：给大模型足够干净的「人 × 岗」上下文。</p>
+        </article>
+        <article>
+          <p class="eyebrow">02 · 结构</p>
+          <h3>按面试官视角分模块</h3>
+          <p>不是一篇散文总结，而是整体评价、岗位分析、高频考点、项目深挖、行为面等可执行清单。</p>
+        </article>
+        <article>
+          <p class="eyebrow">03 · 可靠</p>
+          <h3>长任务必须可恢复</h3>
+          <p>断点续传保存进度，避免网络抖动导致「跑一半作废」——这是 Agent 应用能否真用的分水岭。</p>
+        </article>
+      </div>
 
-      <h2>核心能力</h2>
-      <ul>
-        <li><strong>智能爬虫</strong>：抓取目标岗位面经，内置限速与反爬处理</li>
-        <li><strong>简历解析</strong>：PDF 结构化提取</li>
-        <li><strong>JD 识别</strong>：支持文本与截图 OCR，提取岗位要求与技术栈</li>
-        <li><strong>报告生成</strong>：岗位 + 简历 + 面经 → 8 大模块报告（整体评价、岗位分析、高频考点、项目深挖、行为面试等）</li>
-        <li><strong>断点续传</strong>：长流程任务保存进度，支持异常恢复</li>
-        <li><strong>Web 界面</strong>：Flask 构建，实时进度与 Markdown 导出</li>
+      <h2>我怎么做</h2>
+      <ul class="case-role-list">
+        <li><strong>面经抓取：</strong>按岗位搜索并提取问题；限速与重试，降低失败率。</li>
+        <li><strong>材料解析：</strong>简历 PDF 结构化；JD 支持文本与截图 OCR。</li>
+        <li><strong>报告生成：</strong>基于百炼模型输出 8 模块准备报告，并支持模块化阅读。</li>
+        <li><strong>产品外壳：</strong>Flask Web 展示进度与结果，支持 Markdown 导出。</li>
       </ul>
+
+      <h2>结果：8 大模块报告</h2>
+      <ul class="result-list">
+        <li>整体评价 · 岗位分析 · 高频考点分类解析 · 高频考点清单</li>
+        <li>项目深挖 · 行为面试准备 · 临场应对策略 · 推荐复习资料</li>
+        <li>端到端 Web 流程可演示；任务进度可恢复，报告可导出</li>
+      </ul>
+
+      <h2>证据</h2>
+      <figure class="detail-figure">
+        <img src="../../assets/images/niuke-ai-coach-web-ui.png" alt="牛客 AI 面试教练 Web 配置与进度界面" />
+        <figcaption>Web 配置任务与查看进度——证明这是完整产品流程，而不只是脚本</figcaption>
+      </figure>
+      <figure class="detail-figure">
+        <img src="../../assets/images/niuke-ai-coach-report.png" alt="个性化面试准备报告示例" />
+        <figcaption>分模块报告示例——证明输出可直接用于准备，而不是空泛总结</figcaption>
+      </figure>
 
       <h2>技术栈</h2>
       <ul>
-        <li>Python · Flask · 阿里百炼 DashScope</li>
-        <li>Requests / BeautifulSoup · PDF 解析 · OCR · 状态管理</li>
+        <li>Python · Flask · 阿里百炼 · 爬虫 / PDF 解析 / OCR · 状态管理</li>
       </ul>
+
+      <p class="case-note">开源仓库：<a href="https://github.com/G-LJH/niuke-ai-coach" target="_blank" rel="noopener">niuke-ai-coach</a>。个人学习项目，请遵守目标站点条款；Cookie / Key 等敏感配置只放本地，不上作品集正文。</p>
     </article>
   </main>
 

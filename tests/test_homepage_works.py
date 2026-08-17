@@ -17,7 +17,7 @@ class HomepageWorksTest(unittest.TestCase):
         self.section = self.html[works_start:works_end]
 
     def test_core_projects_appear_first_in_required_order(self):
-        names = ["Agent_for_you", "医生智能助手", "AI 智能客服官网"]
+        names = ["Agent for You", "医生智能助手", "BetterYeah AI 智能客服"]
         positions = [self.section.find(name) for name in names]
         self.assertNotIn(-1, positions)
         self.assertEqual(positions, sorted(positions))

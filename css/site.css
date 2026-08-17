@@ -959,6 +959,25 @@ a.contact-tile:hover {
   color: var(--muted);
 }
 
+.evidence-figures--compact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 0.75rem 0 1.1rem;
+}
+
+.evidence-figures--compact .detail-figure {
+  margin: 0;
+}
+
+.evidence-figures--compact img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+  object-position: top;
+  background: var(--bg);
+}
+
 /* ——— AI customer service case study ——— */
 .case-meta {
   display: flex;
@@ -1099,6 +1118,64 @@ a.contact-tile:hover {
   display: block;
   margin-top: 0.75rem;
   color: rgba(255, 255, 255, 0.52);
+}
+
+.doctor-demo-banner {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.doctor-demo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0 0 2rem;
+}
+
+.doctor-demo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.05rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.doctor-demo-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(47, 111, 237, 0.35);
+  box-shadow: 0 10px 24px rgba(47, 111, 237, 0.12);
+}
+
+.doctor-demo-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.doctor-demo-card strong {
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.doctor-demo-action {
+  margin-top: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-deep);
+}
+
+.doctor-demo-again {
+  margin: 1.5rem 0 0;
+  text-align: center;
+}
+
+.doctor-demo-again .btn {
+  display: inline-flex;
 }
 
 .case-role-list {
@@ -1466,8 +1543,18 @@ a.contact-tile:hover {
 
   .case-brief,
   .case-thinking,
-  .case-role-list {
+  .case-role-list,
+  .doctor-demo-grid,
+  .evidence-figures--compact {
     grid-template-columns: 1fr;
+  }
+
+  .doctor-demo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .evidence-figures--compact img {
+    max-height: 220px;
   }
 
   .case-outcome {

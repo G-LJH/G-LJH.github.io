@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LLM 自动化测评平台 · 刘佳慧</title>
-  <meta name="description" content="FastGPT Agent Tester：用户智能体 + 裁判智能体的自动化测评闭环。" />
+  <title>LLM 自动化测评 · 刘佳慧</title>
+  <meta name="description" content="用用户智能体与裁判智能体批量评测 FastGPT Agent：可复现回归，从天级压到分钟级。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -23,59 +23,89 @@
   </header>
 
   <main class="shell">
-    <header class="page-hero">
-      <p class="breadcrumb"><a href="../../">首页</a> / <a href="../">作品</a> / 测评平台</p>
-      <h1>LLM 自动化测评平台</h1>
-      <p>专为 FastGPT 智能体设计的自动化测评框架：批量测试 → 智能评分 → 优化建议。</p>
+    <header class="page-hero case-hero">
+      <p class="breadcrumb"><a href="../../">首页</a> / <a href="../">作品</a> / LLM 自动化测评</p>
+      <h1>LLM 自动化测评</h1>
+      <p>Agent 一改 Prompt / 知识就要人肉点测——慢、标准因人而异、很难闭环。用「用户智能体施压 + 裁判智能体打分」把回归变成可复现资产，效率从天级压到分钟级。</p>
+      <div class="case-meta" aria-label="项目标签">
+        <span>效果评测</span>
+        <span>双智能体闭环</span>
+        <span>Markdown 配置</span>
+        <span>开源可跑</span>
+      </div>
       <div class="detail-links">
-        <a class="btn btn-primary" href="https://github.com/G-LJH/FastGPT-Agent-Tester" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-primary" href="https://github.com/G-LJH/FastGPT-Agent-Tester" target="_blank" rel="noopener">查看 GitHub</a>
         <a class="btn btn-ghost" href="../">全部作品</a>
       </div>
     </header>
 
-    <article class="tile detail-prose">
-      <p>智能体迭代常缺标准化评估，人工逐条难复现。本项目以「用户智能体 + 裁判智能体」双角色，配合多维评分与 Markdown 无代码配置，把回归从人工逐条升级为自动化批量，效率从天级缩短至分钟级。</p>
+    <article class="tile detail-prose case-study">
+      <h2>背景与问题</h2>
+      <p>在 FastGPT 上搭完智能体，真正卡交付的往往不是「能不能答」，而是<strong>改完敢不敢全量回归</strong>。人工逐条对话贵、慢、不可复现，评测结果也很难直接变成下一步改 Prompt / 知识的动作。</p>
 
-      <h2>为什么需要自动化测评</h2>
-      <ul>
-        <li><strong>效率</strong>：从逐条对话到批量运行，一夜可完成大量测试</li>
-        <li><strong>标准</strong>：统一标尺、多维度客观量化，减少因人而异</li>
-        <li><strong>成本</strong>：一次编写配置，可持续复用</li>
-        <li><strong>反馈</strong>：结构化报告直接指导 Prompt / 流程优化</li>
-        <li><strong>覆盖</strong>：全场景批量覆盖，降低抽样遗漏</li>
+      <div class="case-brief">
+        <div>
+          <strong>我要解决的</strong>
+          <span>把评测从一次性人工劳动，变成可配置、可复跑、能指导优化的资产。</span>
+        </div>
+        <div>
+          <strong>可验证结果</strong>
+          <span>批量对弈 + 多维报告；回归耗时从天级缩短到分钟级。</span>
+        </div>
+      </div>
+
+      <h2>三个关键判断</h2>
+      <div class="case-thinking">
+        <article>
+          <p class="eyebrow">01 · 机制</p>
+          <h3>用 Agent 测 Agent</h3>
+          <p>用户智能体负责多轮施压，裁判智能体按统一标尺打分——评测本身也是一套可交付能力。</p>
+        </article>
+        <article>
+          <p class="eyebrow">02 · 交付</p>
+          <h3>配置大于改代码</h3>
+          <p>用 Markdown 声明话题、轮数与评分标准，让交付同学能复用，而不是每次找开发改脚本。</p>
+        </article>
+        <article>
+          <p class="eyebrow">03 · 闭环</p>
+          <h3>报告必须能指导下一步</h3>
+          <p>输出薄弱点与 Prompt 优化建议，避免「只有分数、没有动作」的假评测。</p>
+        </article>
+      </div>
+
+      <h2>我怎么做</h2>
+      <ul class="case-role-list">
+        <li><strong>设计闭环：</strong>配置加载 → 用户智能体提问 → FastGPT 回复 → 裁判打分 → 汇总与优化建议。</li>
+        <li><strong>实现框架：</strong>异步多轮、批量任务队列；面向 FastGPT API 的可复用客户端。</li>
+        <li><strong>声明式方案：</strong>测试话题与评分标准写在 Markdown，例如曾用于医生助手类场景的配置样例。</li>
+        <li><strong>证据输出：</strong>自动生成概览与多维评分报告，方便对比改配置前后的差异。</li>
       </ul>
 
-      <h2>核心能力</h2>
-      <ul>
-        <li><strong>双模对弈</strong>：用户智能体模拟真实多轮对话</li>
-        <li><strong>多维评分</strong>：裁判智能体按自定义标准量化打分</li>
-        <li><strong>Markdown 配置</strong>：无需改代码即可定义测试方案</li>
-        <li><strong>报告与闭环</strong>：汇总薄弱点并生成优化建议</li>
+      <h2>结果</h2>
+      <ul class="result-list">
+        <li>形成可开源运行的测评框架（见 GitHub README 与配置样例）</li>
+        <li>回归效率：人工天级 → 自动<strong>分钟级</strong></li>
+        <li>交付物不只是分数，还包括可复用配置与优化建议链路</li>
       </ul>
 
-      <h2>测评报告</h2>
-      <figure class="detail-figure">
-        <img src="../../assets/images/fastgpt-report1.png" alt="测评报告概览" />
-        <figcaption>测评报告概览</figcaption>
-      </figure>
-      <figure class="detail-figure">
-        <img src="../../assets/images/fastgpt-report2.png" alt="多维度评分详情" />
-        <figcaption>多维度评分详情</figcaption>
-      </figure>
-
-      <h2>架构要点</h2>
-      <ul>
-        <li>Loader：解析 Markdown 配置，初始化任务队列</li>
-        <li>User Agent：模拟不同背景用户发起咨询</li>
-        <li>FastGPT Client：异步多轮对话状态维护</li>
-        <li>Judge Agent：按评分标准客观打分</li>
-        <li>Optimizer：汇总缺陷模式，输出优化策略</li>
-      </ul>
+      <h2>证据</h2>
+      <div class="evidence-figures evidence-figures--compact" aria-label="测评报告截图">
+        <figure class="detail-figure">
+          <img src="../../assets/images/fastgpt-report1.png" alt="LLM 自动化测评报告概览" />
+          <figcaption>一次批量跑完后的结果总览——证明评测可复现、可留档</figcaption>
+        </figure>
+        <figure class="detail-figure">
+          <img src="../../assets/images/fastgpt-report2.png" alt="多维度评分详情报告" />
+          <figcaption>按维度看短板，直接服务 Prompt / 知识迭代，而不是只给一个总分</figcaption>
+        </figure>
+      </div>
 
       <h2>技术栈</h2>
       <ul>
-        <li>Python · AsyncIO · LLM · FastGPT · 多智能体</li>
+        <li>Python · AsyncIO · FastGPT API · 多智能体（用户 / 裁判 / 优化建议）</li>
       </ul>
+
+      <p class="case-note">开源仓库：<a href="https://github.com/G-LJH/FastGPT-Agent-Tester" target="_blank" rel="noopener">FastGPT-Agent-Tester</a>。安装与环境变量说明见仓库，本页只讲「为什么做、怎么判断、跑出什么」。与医生助手等交付场景可组合使用。</p>
     </article>
   </main>
 

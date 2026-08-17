@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>xbotos 机器人监控 · 刘佳慧</title>
-  <meta name="description" content="基于 Streamlit 的 xbotos 机器人在线状态监控与短信告警。" />
+  <meta name="description" content="xbotos 机器人在线监控：连续失败防误报、短信/邮件告警、历史追踪，轻量可部署。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -23,60 +23,91 @@
   </header>
 
   <main class="shell">
-    <header class="page-hero">
-      <p class="breadcrumb"><a href="../../">首页</a> / <a href="../">作品</a> / xbotos 监控</p>
+    <header class="page-hero case-hero">
+      <p class="breadcrumb"><a href="../../">首页</a> / <a href="../">作品</a> / xbotos 机器人监控</p>
       <h1>xbotos 机器人监控</h1>
-      <p>轻量级在线状态监控：实时面板、连续失败防误报、阿里云短信告警与历史追踪。</p>
+      <p>机器人静默挂掉往往发现得晚；单次探测抖动又容易把短信打成噪音。做轻量监控：实时面板、连续失败才告警、短信/邮件通知与历史回溯——让告警<strong>敢信</strong>，异常<strong>早发现</strong>。</p>
+      <div class="case-meta" aria-label="项目标签">
+        <span>运维可观测</span>
+        <span>告警策略</span>
+        <span>轻量交付</span>
+        <span>开源可跑</span>
+      </div>
       <div class="detail-links">
-        <a class="btn btn-primary" href="https://github.com/G-LJH/xbotos-monitor" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-primary" href="https://github.com/G-LJH/xbotos-monitor" target="_blank" rel="noopener">查看 GitHub</a>
         <a class="btn btn-ghost" href="../">全部作品</a>
       </div>
     </header>
 
-    <article class="tile detail-prose">
-      <p>针对 xbotos 平台机器人服务提供实时健康监测。机器人连续异常时通过阿里云短信告警，帮助运维尽快发现问题。</p>
+    <article class="tile detail-prose case-study">
+      <h2>背景与问题</h2>
+      <p>多机器人服务靠人盯，漏检代价高；但「抖一下就短信」会迅速造成告警疲劳——没人理的告警等于没有告警。真正要交付的是<strong>可信的异常信号</strong>，而不只是又一个状态页。</p>
 
-      <h2>总览面板</h2>
+      <div class="case-brief">
+        <div>
+          <strong>产品命题</strong>
+          <span>少误报、早发现：监控要服务值班，而不是制造噪音。</span>
+        </div>
+        <div>
+          <strong>交付标准</strong>
+          <span>面板可读、策略可调、Docker 可部署。</span>
+        </div>
+      </div>
+
+      <h2>三个关键判断</h2>
+      <div class="case-thinking">
+        <article>
+          <p class="eyebrow">01 · 策略</p>
+          <h3>连续失败 + 冷却</h3>
+          <p>连续 N 次失败才通知，并设置冷却，先解决「敢信」再谈「发得出」。</p>
+        </article>
+        <article>
+          <p class="eyebrow">02 · 体验</p>
+          <h3>一眼可读的分层面板</h3>
+          <p>总览看健康，管理改对象，历史可回溯——值班时不靠翻日志碰运气。</p>
+        </article>
+        <article>
+          <p class="eyebrow">03 · 部署</p>
+          <h3>足够轻才能真上线</h3>
+          <p>Streamlit + Docker Compose，方便挂进现有 1Panel 环境，降低运维接入成本。</p>
+        </article>
+      </div>
+
+      <h2>我怎么做</h2>
+      <ul class="case-role-list">
+        <li><strong>监控引擎：</strong>定时探测在线状态，自动刷新总览。</li>
+        <li><strong>告警通道：</strong>阿里云短信与 SMTP 邮件可单开或同开；策略层统一控频。</li>
+        <li><strong>管理与历史：</strong>集中维护机器人对象，保留每次探测记录便于复盘。</li>
+        <li><strong>交付形态：</strong>容器化部署，配置与数据可持久化。</li>
+      </ul>
+
+      <h2>结果</h2>
+      <ul class="result-list">
+        <li>形成可开源运行的监控服务（总览 / 管理 / 历史 / 告警）</li>
+        <li>告警从「有通知」升级为「有策略的通知」——降低抖动误报</li>
+        <li>可部署到 Docker / 1Panel，适合作为交付配套工具</li>
+      </ul>
+
+      <h2>证据</h2>
       <figure class="detail-figure">
-        <img src="../../assets/images/xbotos-overview.png" alt="监控总览面板" />
-        <figcaption>实时总览：机器人状态一目了然</figcaption>
+        <img src="../../assets/images/xbotos-overview.png" alt="机器人监控总览面板" />
+        <figcaption>总览：机器人在线状态一眼可读——证明监控服务真实在跑</figcaption>
       </figure>
-      <ul>
-        <li>定时检测在线状态，自动刷新</li>
-        <li>支持一键启停监控服务</li>
-      </ul>
-
-      <h2>告警策略</h2>
-      <ul>
-        <li><strong>连续失败阈值</strong>：连续 N 次失败才发短信，降低单次抖动误报</li>
-        <li><strong>告警冷却</strong>：避免短信轰炸</li>
-        <li><strong>阿里云 SMS</strong>：稳定推送告警</li>
-      </ul>
-
-      <h2>机器人管理</h2>
       <figure class="detail-figure">
         <img src="../../assets/images/xbotos-robot-management.png" alt="机器人管理界面" />
-        <figcaption>集中配置与维护机器人</figcaption>
+        <figcaption>管理：集中维护监控对象，而不是改配置文件碰运气</figcaption>
       </figure>
-
-      <h2>检测历史</h2>
       <figure class="detail-figure">
-        <img src="../../assets/images/xbotos-history.png" alt="检测历史" />
-        <figcaption>完整记录每次检测时间与结果</figcaption>
+        <img src="../../assets/images/xbotos-history.png" alt="检测历史记录" />
+        <figcaption>历史：每次探测可回溯，方便确认是抖动还是持续故障</figcaption>
       </figure>
-
-      <h2>我做了什么</h2>
-      <ul>
-        <li>模块化架构：配置 / 数据 / 监控 / 告警分层</li>
-        <li>告警策略：连续失败 + 冷却，降低误报</li>
-        <li>容器化：Docker Compose，可部署到 1Panel</li>
-      </ul>
 
       <h2>技术栈</h2>
       <ul>
-        <li>Python · Streamlit · Pandas · Requests</li>
-        <li>阿里云短信 SDK · Docker / Docker Compose · 本地 JSON 持久化</li>
+        <li>Python · Streamlit · 阿里云短信 / SMTP · Docker Compose · 本地 JSON 持久化</li>
       </ul>
+
+      <p class="case-note">开源仓库：<a href="https://github.com/G-LJH/xbotos-monitor" target="_blank" rel="noopener">xbotos-monitor</a>。本页强调告警策略判断；环境变量与部署命令见仓库。</p>
     </article>
   </main>
 

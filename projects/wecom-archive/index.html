@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>企业微信会话存档 · 刘佳慧</title>
-  <meta name="description" content="通过第三方回调实现企业微信消息异步存档，显著降低合规成本。" />
+  <meta name="description" content="用第三方回调替代官方企微会话存档：合规成本从约 9 万/人/年降到接近 0，可部署入库。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -23,46 +23,83 @@
   </header>
 
   <main class="shell">
-    <header class="page-hero">
-      <p class="breadcrumb"><a href="../../">首页</a> / <a href="../">作品</a> / 会话存档</p>
+    <header class="page-hero case-hero">
+      <p class="breadcrumb"><a href="../../">首页</a> / <a href="../">作品</a> / 企业微信会话存档</p>
       <h1>企业微信会话存档</h1>
-      <p>用第三方回调替代官方存档，把合规成本从约 9 万/人/年降到接近 0，并推动成为公司服务能力。</p>
+      <p>合规与质检需要会话数据，但官方存档贵、对接重。用 xbotox 回调完成捕获与入库，把合规成本从约 <strong>9 万/人/年</strong> 降到接近 <strong>0</strong>，并做成可部署的服务能力。</p>
+      <div class="case-meta" aria-label="项目标签">
+        <span>合规降本</span>
+        <span>数据链路</span>
+        <span>可部署交付</span>
+        <span>开源可跑</span>
+      </div>
       <div class="detail-links">
-        <a class="btn btn-primary" href="https://github.com/G-LJH/wecom-archive" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-primary" href="https://github.com/G-LJH/xbotox-callback-storage" target="_blank" rel="noopener">查看 GitHub</a>
         <a class="btn btn-ghost" href="../">全部作品</a>
       </div>
     </header>
 
-    <article class="tile detail-prose">
-      <p>会话存档是合规与质检的核心能力，但官方接口成本高、对接复杂，也难与内部 CRM / AI 知识库打通。本方案通过第三方回调完成消息捕获与结构化存储，打通从捕获到入库的链路。</p>
+    <article class="tile detail-prose case-study">
+      <h2>背景与问题</h2>
+      <p>会话存档是合规审计与服务质量的基础能力。官方路径费用高、对接复杂，中小团队很难负担；即便存下来，还要能进内部系统，而不是锁死在厂商黑盒里。</p>
 
-      <h2>背景与痛点</h2>
-      <ul>
-        <li>官方接口服务费高，中小团队难负担</li>
-        <li>直接对接底层 SDK / 解密流程复杂</li>
-        <li>聊天数据难灵活接入内部系统与 RAG</li>
+      <div class="case-brief">
+        <div>
+          <strong>成本锚点</strong>
+          <span>官方会话存档约 9 万/人/年——这是方案成立的第一性条件。</span>
+        </div>
+        <div>
+          <strong>交付标准</strong>
+          <span>能稳定收、能结构化存、能运维上线，而不是一次性脚本。</span>
+        </div>
+      </div>
+
+      <h2>三个关键判断</h2>
+      <div class="case-thinking">
+        <article>
+          <p class="eyebrow">01 · 路径</p>
+          <h3>用回调换成本结构</h3>
+          <p>不跟官方接口硬刚全量能力，先打通「捕获 → 解析 → MySQL」这条可负担主链路。</p>
+        </article>
+        <article>
+          <p class="eyebrow">02 · 交付</p>
+          <h3>部署必须可复制</h3>
+          <p>轻量服务 + 日志与健康检查，方便进入公司/客户环境，而不是只在自己电脑能跑。</p>
+        </article>
+        <article>
+          <p class="eyebrow">03 · 延展</p>
+          <h3>为后续智能应用留口</h3>
+          <p>结构化存储文本/图片/文件消息，预留质检与 RAG 使用，而不是存完即死。</p>
+        </article>
+      </div>
+
+      <h2>我怎么做</h2>
+      <ul class="case-role-list">
+        <li><strong>链路设计：</strong>企微消息经 xbotox 捕获后回调到自建服务，解析并写入 MySQL。</li>
+        <li><strong>工程落地：</strong>Flask 服务、去重、日志；支持单聊/群聊与常见消息类型。</li>
+        <li><strong>可运维：</strong>容器化部署到 1Panel 等环境，保证可持续跑而不是演示一次。</li>
+        <li><strong>产品化：</strong>推动成为可对外说明的服务能力——重点是降本与可交付，而不只是个人练习。</li>
       </ul>
 
-      <h2>工程亮点</h2>
-      <ul>
-        <li><strong>部署轻量</strong>：现代包管理与容器化，便于上线</li>
-        <li><strong>可运维</strong>：日志监控 + health 自检</li>
-        <li><strong>可扩展</strong>：预留 RAG / 质检接口，存档数据可进入后续智能应用</li>
+      <h2>结果</h2>
+      <ul class="result-list">
+        <li>合规成本：约 <strong>9 万/人/年</strong> → 接近 <strong>0</strong>（相对官方存档路径）</li>
+        <li>形成可开源、可部署的回调存档服务</li>
+        <li>数据落库后可进入后续质检 / 知识应用，而不是一次性导出</li>
       </ul>
 
-      <h2>部署运行</h2>
+      <h2>证据</h2>
       <figure class="detail-figure">
-        <img src="../../assets/images/wecom-chat-1panel.png" alt="1Panel 上 wecom-chat-archive 容器运行状态" />
-        <figcaption>已部署至 1Panel 容器环境运行</figcaption>
+        <img src="../../assets/images/wecom-chat-1panel.png" alt="1Panel 上会话存档容器运行状态" />
+        <figcaption>已在容器环境稳定运行——证明这是可交付服务，而不只是本地 Demo</figcaption>
       </figure>
-      <ul>
-        <li>示例环境：2 核 4G · Ubuntu 22.04 · 1Panel · OpenResty · MySQL 8.0</li>
-      </ul>
 
       <h2>技术栈</h2>
       <ul>
-        <li>Python · Flask · MySQL · Webhook · 企业微信</li>
+        <li>Python · Flask · MySQL · Webhook · 企业微信 / xbotox</li>
       </ul>
+
+      <p class="case-note">开源仓库：<a href="https://github.com/G-LJH/xbotox-callback-storage" target="_blank" rel="noopener">xbotox-callback-storage</a>（站内路径名 wecom-archive）。配置与建表细节见仓库；本页强调成本判断与交付结果。</p>
     </article>
   </main>
 
