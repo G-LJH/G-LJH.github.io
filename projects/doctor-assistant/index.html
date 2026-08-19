@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>医生智能助手 · 刘佳慧</title>
-  <meta name="description" content="医疗场景 0-1 交付：专科医生 Agent 矩阵接入企业微信，安全兜底与模板复用缩短搭建约 80%。" />
+  <meta name="description" content="独立负责的医生助手：诊前预问诊、日常问答、导诊挂号与购药引导；通用 + 医生专用两套知识库，接入企业微信，网页可真实试聊。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -25,16 +25,16 @@
   <main class="shell">
     <header class="page-hero case-hero">
       <p class="breadcrumb"><a href="../../">首页</a> / <a href="../">作品</a> / 医生智能助手</p>
-      <h1>医生智能助手</h1>
-      <p>医生被重复患者咨询占满、回复口径不一。做成可进企业微信的专科 Agent 矩阵：问答、挂号指引与购药引导有边界地承接，而不是只停在后台 Demo。</p>
+      <h1>帮医生接住诊前和日常问询，不代替医生</h1>
+      <p>这个项目我独立负责。定位是<strong>医生助手，不是 AI 医生</strong>。帮医生做诊前预问诊、日常问答、导诊 / 挂号、购药引导。患者加企业微信就能问。交付 8 个专科——网页可真实试聊（演示，不是看病）。</p>
       <div class="case-meta" aria-label="项目标签">
-        <span>医疗交付 · 0-1</span>
-        <span>场景拆解</span>
-        <span>安全兜底</span>
-        <span>模板 1-N</span>
+        <span>0→1 独立负责</span>
+        <span>助手不是替医生</span>
+        <span>两套知识库</span>
+        <span>企业微信入口</span>
       </div>
       <div class="detail-links">
-        <a class="btn btn-primary case-demo-primary" href="http://114.55.140.84:3000/chat/share?shareId=n4R4kq8RvOX4SlesYAiz24I6" target="_blank" rel="noopener">在线体验对话 ↗</a>
+        <a class="btn btn-primary case-demo-primary" href="http://114.55.140.84:3000/chat/share?shareId=n4R4kq8RvOX4SlesYAiz24I6" target="_blank" rel="noopener">立即体验对话 ↗</a>
         <a class="btn btn-ghost" href="#doctor-demos">更多专科入口</a>
         <a class="btn btn-ghost" href="../">全部作品</a>
       </div>
@@ -43,9 +43,9 @@
     <article class="tile detail-prose case-study">
       <section class="case-outcome doctor-demo-banner" aria-labelledby="doctor-try-title" id="doctor-demos">
         <div>
-          <p class="eyebrow">可点击体验</p>
-          <h2 id="doctor-try-title">打开演示环境，直接和专科 Agent 对话</h2>
-          <p>生产环境已接入企业微信患者端；下方为公开演示入口，点开即可试聊。仅供作品展示，不构成诊疗建议。</p>
+          <p class="eyebrow">LIVE DEMO · 可真实对话</p>
+          <h2 id="doctor-try-title">立即体验：打开就能和专科助手对话</h2>
+          <p>生产环境已接入企业微信患者端；下方为公开演示入口，点开即可试聊。演示环境，不构成诊疗建议；医院与患者信息已脱敏。</p>
         </div>
         <a class="btn case-demo-primary" href="http://114.55.140.84:3000/chat/share?shareId=n4R4kq8RvOX4SlesYAiz24I6" target="_blank" rel="noopener">先体验医生 A ↗</a>
       </section>
@@ -73,66 +73,86 @@
         </a>
       </div>
 
-      <h2>背景与问题</h2>
-      <p>临床侧高频咨询高度重复，却仍要医生亲自回；口径不一致还会带来体验与合规风险。真正的难点不只是「能回答」，而是：<strong>能不能进真实患者入口，以及答错时有没有边界。</strong></p>
+      <h2>为什么做</h2>
+      <p>门诊前后，医生大量时间耗在患者反复问的同类问题上：这次该挂哪、检查怎么看、能不能买药。每个人回复口径还不一样。</p>
+      <p>这件事不能做成「替医生看病」。诊断和医嘱仍归医生，助手只接住那些重复、可规范回答的问询。入口选企业微信：医院和医生本来就用企微对外联系患者，患者不用另装 App；加一次就能反复问，问的是这位医生的助手，而不是一个匿名网页。</p>
 
       <div class="case-brief">
         <div>
-          <strong>交付约束</strong>
-          <span>要上企业微信患者端，而不是只做可演示的网页聊天。</span>
+          <strong>定位</strong>
+          <span>医生助手，不是代替医生；答不了就停。</span>
         </div>
         <div>
           <strong>项目结果</strong>
-          <span>8 位专科智能体交付；模板复用后后续搭建周期缩短约 80%。</span>
+          <span>8 个专科助手接入企微；模板复用后后续搭建约短 80%。</span>
         </div>
       </div>
 
-      <h2>三个关键判断</h2>
+      <h2>帮医生做哪几件</h2>
       <div class="case-thinking">
         <article>
-          <p class="eyebrow">01 · 工作流</p>
-          <h3>先还原医生工作，再配 Agent</h3>
-          <p>不问「能接哪些模型」，先问高频意图、异常分支与医生真正想省下的时间。</p>
+          <p class="eyebrow">01</p>
+          <h3>诊前预问诊</h3>
+          <p>把就诊前反复会出现的问题先接住，医生看诊时少从零问一遍。</p>
         </article>
         <article>
-          <p class="eyebrow">02 · 安全</p>
-          <h3>边界优先于话术炫技</h3>
-          <p>意图兜底、安全过滤与确定性回复优先，降低幻觉、越界和非标准回复风险。</p>
+          <p class="eyebrow">02</p>
+          <h3>日常问答</h3>
+          <p>按知识库答常见问题，并带依据；答不了就停，不冒充医生下诊断。</p>
         </article>
         <article>
-          <p class="eyebrow">03 · 复制</p>
-          <h3>做矩阵 + 模板，不做 8 个孤岛</h3>
-          <p>专科知识库与策略可定制，但搭建路径标准化，为 1-N 复制留口。</p>
+          <p class="eyebrow">03</p>
+          <h3>导诊 / 挂号 · 购药引导</h3>
+          <p>给步骤，不当成医嘱；购药只在允许范围内说，越界转人工或不答。</p>
         </article>
       </div>
 
-      <h2>我怎么做</h2>
+      <h2>两套知识库</h2>
+      <div class="case-thinking">
+        <article>
+          <p class="eyebrow">通用</p>
+          <h3>医学专业通用知识</h3>
+          <p>保证基本问得清、口径有依据，8 个专科共用这一层。</p>
+        </article>
+        <article>
+          <p class="eyebrow">专用</p>
+          <h3>医生专用知识库</h3>
+          <p>每个医生可能有自己的要求：回复口径、可解答范围、出诊习惯。单独配一份，避免所有人一套话。</p>
+        </article>
+        <article>
+          <p class="eyebrow">复制</p>
+          <h3>做成可复用模板</h3>
+          <p>后面再搭同类助手，搭建周期大约短 80%。</p>
+        </article>
+      </div>
+
+      <h2>我的角色</h2>
       <ul class="case-role-list">
-        <li><strong>场景拆解：</strong>科室调研，把问答、挂号指引、购药引导拆成可执行意图与流程。</li>
-        <li><strong>Agent 设计：</strong>基于 FastGPT 搭建 8 位专科智能体，配置知识库、Prompt / 对话策略与多分支工作流。</li>
-        <li><strong>接入交付：</strong>打通企业微信患者端，进入真实咨询链路；处理 Markdown 等渲染兼容问题。</li>
-        <li><strong>资产沉淀：</strong>抽象专家智能体模板，把后续搭建从「重做一遍」变成「填差异」。</li>
+        <li><strong>独立负责：</strong>从定位（助手不是替医生）、两套知识库、工作流，到企业微信接入和模板，这条 0–1 我做完。</li>
+        <li><strong>场景拆解：</strong>把诊前预问诊、日常问答、导诊 / 挂号、购药引导做成可执行路径。</li>
+        <li><strong>接入交付：</strong>接到患者加企微就能问的入口，而不是停在后台 Demo。</li>
       </ul>
 
       <h2>结果</h2>
       <ul class="result-list">
-        <li>交付 <strong>8</strong> 位专科医生智能体，并接入企业微信患者端</li>
-        <li>沉淀标准化模板，后续搭建周期缩短约 <strong>80%</strong></li>
-        <li>回答可引用知识库依据，降低「凭空发挥」的观感与风险</li>
+        <li>交付 <strong>8</strong> 个专科助手，患者加企业微信即可对话</li>
+        <li>配置<strong>通用医学知识库 + 医生专用知识库</strong></li>
+        <li>沉淀模板，后续搭建周期缩短约 <strong>80%</strong></li>
+        <li>回答可引用知识库依据；网页演示可真实试聊</li>
       </ul>
 
       <h2>证据</h2>
       <figure class="detail-figure">
         <img src="../../assets/images/doctor-assistant-UI.png" alt="医生智能助手患者端对话界面，展示问答与引用" />
-        <figcaption>患者端可真实咨询；回答带来源依据，而不是空口回复</figcaption>
+        <figcaption>患者端可问，回答带来源依据——证明不是空口回复，也不是替医生下诊断</figcaption>
       </figure>
       <figure class="detail-figure">
         <img src="../../assets/images/doctor-assistant-workflow.png" alt="医生智能助手 FastGPT 多分支工作流编排" />
-        <figcaption>工作流覆盖问答 / 导诊 / 购药等路径，而不是单轮闲聊</figcaption>
+        <figcaption>工作流覆盖诊前预问诊、日常问答、导诊 / 挂号、购药引导</figcaption>
       </figure>
 
       <p class="doctor-demo-again">
-        <a class="btn btn-primary case-demo-primary" href="http://114.55.140.84:3000/chat/share?shareId=n4R4kq8RvOX4SlesYAiz24I6" target="_blank" rel="noopener">看完截图后，直接体验对话 ↗</a>
+        <a class="btn btn-primary case-demo-primary" href="http://114.55.140.84:3000/chat/share?shareId=n4R4kq8RvOX4SlesYAiz24I6" target="_blank" rel="noopener">看完截图后，立即体验对话 ↗</a>
       </p>
 
       <h2>技术栈</h2>
@@ -140,7 +160,7 @@
         <li>FastGPT · RAG · 意图识别 / 多轮对话 · 企业微信 API</li>
       </ul>
 
-      <p class="case-note">实习交付项目；医院与患者信息脱敏。重点展示「能上线、有边界、可复制」，而非模型参数。</p>
+      <p class="case-note">实习交付项目；医院与患者信息已脱敏。演示环境不构成诊疗建议。</p>
     </article>
   </main>
 

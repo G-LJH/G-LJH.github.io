@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Agent for You｜个人 Agent 工作台 · 刘佳慧</title>
-  <meta name="description" content="Agent for You：把一次性 AI 对话变成持续工作的本地个人 Agent，连接项目、长期记忆、会议与定时任务。" />
+  <title>Agent for You｜内部个人 Agent 底座 · 刘佳慧</title>
+  <meta name="description" content="Agent for You：和联想合作的内部个人 Agent 底座。对着项目文件夹干活，接上长期记忆、AI 会议与定时任务。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -25,14 +25,14 @@
   <main class="shell">
     <header class="page-hero agent-page-hero">
       <p class="breadcrumb"><a href="../../">首页</a> / <a href="../">作品</a> / Agent for You</p>
-      <p class="eyebrow">Agent for You · 个人 Agent · 0-1 MVP</p>
-      <h1>把一次性 AI 对话，变成持续工作的个人 Agent</h1>
-      <p class="agent-hero-lead">长任务里上下文会断、会议和文件散落各处。围绕真实项目连接文件、长期记忆、会议与定时任务，让 Agent 理解过去、接住现场并主动推进下一步——而不是答完一句就结束。</p>
+      <p class="eyebrow">Agent for You · 企业个人 Agent · 0→1</p>
+      <h1>给内部办公用的个人 Agent 底座</h1>
+      <p class="agent-hero-lead">公司和联想合作，要给内部员工提高办公效率。先内部试用，体验过关再考虑外推。按一层底座来做：现在已经能对着项目文件夹干活、留下长期记忆、开会转写、定时执行——不是又一个通用聊天框。</p>
       <div class="case-meta" aria-label="项目标签">
-        <span>AI 产品经理</span>
-        <span>产品定义与交互设计</span>
-        <span>Vibe Coding 落地</span>
-        <span>可运行 Demo</span>
+        <span>产品定位 + AI 编程</span>
+        <span>可运行版本</span>
+        <span>基于 pi 扩展</span>
+        <span>源码可看</span>
       </div>
       <div class="detail-links">
         <a class="btn btn-primary case-demo-primary" href="https://github.com/G-LJH/agent_for_you" target="_blank" rel="noopener">查看 GitHub 项目</a>
@@ -41,105 +41,79 @@
     </header>
 
     <article class="tile detail-prose case-study agent-case-study">
-      <section class="agent-story" aria-labelledby="agent-thesis">
-        <p class="eyebrow">产品命题</p>
-        <h2 id="agent-thesis">工作不发生在聊天框，而发生在项目和时间里</h2>
-        <p>我观察到，现有 Agent 即使单次回答足够聪明，仍很难真正进入长期工作：会话结束后上下文中断，会议内容停留在另一个工具里，重复任务仍要人一次次发起。</p>
-        <p>因此我把产品目标从“做一个更好用的聊天界面”改为：<strong>让同一个 Agent 围绕项目持续获得上下文、沉淀记忆，并在合适的时间主动工作。</strong></p>
+      <section class="agent-story" aria-labelledby="agent-why">
+        <p class="eyebrow">为什么做</p>
+        <h2 id="agent-why">第一版就要能真用，不能只是 Demo</h2>
+        <p>这是公司与联想合作的内部效率项目：内部测下来如果体验好，后续有机会往外推。因此我没有从功能清单出发，而是先做了下面三条产品取舍。</p>
 
-        <div class="agent-problem-grid" aria-label="产品问题">
+        <div class="agent-problem-grid" aria-label="三条判断">
           <article>
             <span>01</span>
-            <h3>上下文会断</h3>
-            <p>换一次会话，就要重新解释项目、偏好和历史决策。</p>
+            <h3>做专用，不做人设上的通用</h3>
+            <p>通用办公助手拼入口和「什么都能聊」。内部员工真正卡住的是对着项目、文件、会议把事做完。第一版先把「选定文件夹就能干活」做透。</p>
           </article>
           <article>
             <span>02</span>
-            <h3>工具彼此割裂</h3>
-            <p>文件、会议和待办分散，讨论结果难以直接进入执行。</p>
+            <h3>先做成底座，再往上加能力</h3>
+            <p>会议、记忆、定时任务不做成彼此孤立的工具，而是接到同一个 Agent：默认在项目里聊，需要现场就开会，重复的事交给定时任务。</p>
           </article>
           <article>
             <span>03</span>
-            <h3>Agent 只能被动响应</h3>
-            <p>只有用户开口时才工作，无法持续跟进重复事项。</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="agent-section" aria-labelledby="agent-solution">
-        <div class="agent-section-head">
-          <p class="eyebrow">产品方案</p>
-          <h2 id="agent-solution">从一次对话，扩展为一条长期工作链路</h2>
-          <p>不是堆叠孤立功能，而是围绕“真实项目”组织三个连续层次。</p>
-        </div>
-        <div class="agent-solution-flow">
-          <article>
-            <span>现在</span>
-            <h3>在项目里做事</h3>
-            <p>直接使用文件、代码与命令，不再手动搬运上下文。</p>
-          </article>
-          <article>
-            <span>过去</span>
-            <h3>跨会话记得住</h3>
-            <p>把长期有价值的信息沉淀为可阅读、可召回的本地记忆。</p>
-          </article>
-          <article>
-            <span>未来</span>
-            <h3>按事件主动推进</h3>
-            <p>让会议和计划任务成为 Agent 的新输入与触发器。</p>
+            <h3>必须有长期记忆</h3>
+            <p>模型会越来越像。真正能越用越深的，是这个项目上次定过什么、材料堆在哪、会上答应过什么——这些还在。记忆不是附赠。</p>
           </article>
         </div>
       </section>
 
       <section class="agent-section" aria-labelledby="agent-features">
         <div class="agent-section-head">
-          <p class="eyebrow">产品全景</p>
-          <h2 id="agent-features">核心功能</h2>
-          <p>四项能力共同回答一个问题：Agent 如何在真实工作中持续参与，而不是用完即走。</p>
+          <p class="eyebrow">我做成了什么</p>
+          <h2 id="agent-features">底座上已经接上的四件</h2>
+          <p>它干活时看的是当前文件夹、工作区材料、本地记忆和会议记录。新能力按同一套底座往上接。</p>
         </div>
 
         <div class="agent-feature-grid">
           <article class="agent-feature-card">
-            <a class="agent-feature-media" href="../../assets/images/agent-for-you-main-panel.png" target="_blank" rel="noopener" aria-label="打开 agent-studio 主面板截图">
-              <img src="../../assets/images/agent-for-you-main-panel.png" alt="实际运行的 agent-studio 主面板，展示项目会话、文件预览和项目目录三个工作区域" />
+            <a class="agent-feature-media" href="../../assets/images/agent-for-you-chat.png" target="_blank" rel="noopener" aria-label="打开项目对话截图">
+              <img src="../../assets/images/agent-for-you-chat.png" alt="Agent 在本机读取项目 README 并给出摘要" />
             </a>
             <div class="agent-feature-copy">
-              <span>01 · 真实项目上下文</span>
+              <span>01 · 碰得到项目</span>
               <h3>项目工作台</h3>
-              <p>选择本地目录后，Agent 可以读取文件、修改代码、执行命令并预览结果。用户不必反复复制材料，对话直接发生在工作对象旁边——这是「真实含金量」的第一证据：它碰得到项目。</p>
+              <p>选定本地项目文件夹，Agent 直接读文件、改内容、跑命令。不是把文件贴进对话框，是对着本地目录干活。</p>
             </div>
           </article>
 
           <article class="agent-feature-card">
-            <a class="agent-feature-media" href="../../assets/images/agent-for-you-workspaces.png" target="_blank" rel="noopener" aria-label="打开工作区高清截图">
-              <img src="../../assets/images/agent-for-you-workspaces.png" alt="工作区页面展示长期维护文件夹和新建工作区入口" />
+            <a class="agent-feature-media" href="../../assets/images/agent-for-you-workspaces.png" target="_blank" rel="noopener" aria-label="打开工作区截图">
+              <img src="../../assets/images/agent-for-you-workspaces.png" alt="工作区已登记周报并挂上本机路径" />
             </a>
             <div class="agent-feature-copy">
-              <span>02 · 跨会话连续性</span>
-              <h3>工作区与长期记忆</h3>
-              <p>把周报等长期场景登记为工作区，材料与 Skill 持续积累；对话中的画像、决策和知识按需沉淀，并在新会话中召回。</p>
+              <span>02 · 能攒下来</span>
+              <h3>长期记忆</h3>
+              <p>把还要用的决策和材料写成本地文档，下次还能找回来。护城河不在模型，在还在的上下文。</p>
             </div>
           </article>
 
           <article class="agent-feature-card">
-            <a class="agent-feature-media" href="../../assets/images/agent-for-you-meeting-setup.png" target="_blank" rel="noopener" aria-label="打开 AI 会议录音录屏设置截图">
-              <img src="../../assets/images/agent-for-you-meeting-setup.png" alt="实际运行的 AI 会议设置，展示项目识别上下文、会议名称和屏幕与系统音频录制选项" />
+            <a class="agent-feature-media" href="../../assets/images/agent-for-you-meeting-workspace.png" target="_blank" rel="noopener" aria-label="打开 AI 会议截图">
+              <img src="../../assets/images/agent-for-you-meeting-workspace.png" alt="产品评审会正在录音，逐字稿、摘要与待办同屏" />
             </a>
             <div class="agent-feature-copy">
-              <span>03 · 现场信息进入项目</span>
+              <span>03 · 现场进得来</span>
               <h3>AI 会议</h3>
-              <p>支持麦克风、系统音频与屏幕录制，实时转写并区分说话人，结束后生成摘要和行动项，让“会上说了什么”直接衔接后续执行。</p>
+              <p>录音 / 录屏 / 转写，会后摘要和行动项进当前项目。开会不是另开一个录音软件。</p>
             </div>
           </article>
 
           <article class="agent-feature-card">
-            <a class="agent-feature-media" href="../../assets/images/agent-for-you-automations.png" target="_blank" rel="noopener" aria-label="打开定时任务高清截图">
-              <img src="../../assets/images/agent-for-you-automations.png" alt="定时任务页面展示任务搜索、状态筛选和每周回顾、跟进监控建议" />
+            <a class="agent-feature-media" href="../../assets/images/agent-for-you-automations.png" target="_blank" rel="noopener" aria-label="打开定时任务截图">
+              <img src="../../assets/images/agent-for-you-automations.png" alt="定时任务入口与每周回顾、跟进监控建议" />
             </a>
             <div class="agent-feature-copy">
-              <span>04 · 从响应走向主动</span>
+              <span>04 · 能主动跑</span>
               <h3>定时任务</h3>
-              <p>为周报整理、项目巡检等例行工作设定计划，Agent 到点执行并把结果返回聊天。重复工作无需每次重新发起。</p>
+              <p>到点执行，结果回到同一条对话。重复事项按计划跑，不必每次重新发起。</p>
             </div>
           </article>
         </div>
@@ -147,39 +121,39 @@
 
       <section class="agent-section" aria-labelledby="agent-decisions">
         <div class="agent-section-head">
-          <p class="eyebrow">产品取舍</p>
-          <h2 id="agent-decisions">三个关键产品决策</h2>
+          <p class="eyebrow">实现取舍</p>
+          <h2 id="agent-decisions">做成可运行版本时的边界</h2>
         </div>
         <div class="agent-decision-grid">
           <article>
             <span>01</span>
-            <h3>本地优先，而非先做云端账户</h3>
-            <p>代码、记忆与会议录音涉及高敏感信息，因此先建立“数据留在本机、用户能够检查”的信任基础。</p>
+            <h3>数据先放本机</h3>
+            <p>这版没有云端账号。代码、记忆与会议录音留在本机，用户能够检查。</p>
           </article>
           <article>
             <span>02</span>
-            <h3>记得少一点，但更有价值</h3>
-            <p>只沉淀 30 天后仍有用、且不容易重新推导的信息；记忆异步写入，即使失败也不打断正常对话。</p>
+            <h3>记忆只记以后还值钱的</h3>
+            <p>不把每句闲聊存下来；只沉淀以后还要用、且不容易重新推导的信息。</p>
           </article>
           <article>
             <span>03</span>
-            <h3>同一个 Agent，多种工作入口</h3>
-            <p>Web、桌面与 CLI 共用能力，会议负责补充现场上下文，定时任务负责触发行动，避免形成多个割裂助手。</p>
+            <h3>Web、桌面、命令行是同一个 Agent</h3>
+            <p>入口可以不同，底座是一套；新能力往同一个 Agent 上接，而不是另起一个。</p>
           </article>
         </div>
       </section>
 
       <section class="agent-contribution" aria-labelledby="agent-role">
         <div>
-          <p class="eyebrow">我的贡献</p>
-          <h2 id="agent-role">我如何把想法做成可运行 Demo</h2>
-          <p>我以 AI 产品经理视角完成产品定位、需求拆解、信息架构与交互设计，并用 Vibe Coding 把关键链路推进到可运行版本——展示的是<strong>定义问题 + 做成闭环</strong>的能力，而不是堆功能清单。</p>
+          <p class="eyebrow">我的角色</p>
+          <h2 id="agent-role">参与定位与取舍，并用 AI 编程接到可运行版本</h2>
+          <p>我参与产品定位和「专用 / 底座 / 记忆」三条取舍，并用 AI 编程把工作台、记忆、会议、定时任务接到可运行版本。</p>
           <ul class="agent-role-list">
-            <li><strong>定义问题：</strong>从 coding agent 的单次会话，重新定位为「围绕项目持续工作」的个人 Agent 工作台。</li>
-            <li><strong>设计闭环：</strong>把项目、记忆、工作区、会议和自动任务组织成连续体验，而不是四个孤立插件。</li>
-            <li><strong>驱动落地：</strong>拆解 Prompt、选择方案、运行测试、定位问题并持续调整，直到形成可运行 MVP。</li>
+            <li><strong>产品取舍：</strong>不做万金油通用助手，先做成可扩展的专用底座。</li>
+            <li><strong>能力落地：</strong>把四件能力接到同一条工作体验，而不是四个孤立插件。</li>
+            <li><strong>实现边界：</strong>底层 Agent 能力基于 pi 做集成和扩展，不是从零写一套模型运行时。</li>
           </ul>
-          <p class="agent-build-note">实现边界：底层 Agent 能力<strong>基于 pi</strong>集成与扩展；我不把自己包装成传统全栈工程师，而是展示如何借助 AI 完成产品闭环，并用 GitHub 源码自证。</p>
+          <p class="agent-build-note">源码与 README 在 GitHub，可直接核对实现。</p>
         </div>
         <a class="btn btn-primary" href="https://github.com/G-LJH/agent_for_you" target="_blank" rel="noopener">查看源码与 README</a>
       </section>
