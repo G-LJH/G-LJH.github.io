@@ -75,6 +75,34 @@ class HomepageWorksTest(unittest.TestCase):
         self.assertNotIn("#101522", more_card_rule)
         self.assertNotIn("#19243b", more_card_rule)
 
+    def test_thinking_section_promotes_column_and_selected_articles(self):
+        thinking_marker = self.html.index('aria-labelledby="thinking-title"')
+        thinking_start = self.html.rfind("<section", 0, thinking_marker)
+        thinking_end = self.html.index('<section id="contact"', thinking_start)
+        section = self.html[thinking_start:thinking_end]
+
+        self.assertIn('<a href="#thinking">思考</a>', self.html)
+        self.assertIn("思考与写作", section)
+        self.assertIn("每日 AI PM 情报", section)
+        self.assertEqual(section.count('class="tile thinking-feature"'), 1)
+        self.assertEqual(section.count('class="tile thinking-articles"'), 1)
+        self.assertNotIn('class="tile thinking-card"', section)
+        for href in [
+            "https://blog.csdn.net/qw1233w/category_13203460.html",
+            "https://blog.csdn.net/qw1233w/article/details/163163254",
+            "https://blog.csdn.net/qw1233w/article/details/163829649",
+            "https://blog.csdn.net/qw1233w/article/details/163859203",
+            "https://blog.csdn.net/qw1233w/article/details/160831319",
+        ]:
+            self.assertIn(f'href="{href}"', section)
+
+    def test_thinking_styles_include_responsive_grid_and_focus_state(self):
+        self.assertIn(".thinking-grid {", self.css)
+        self.assertIn(".thinking-feature:focus-visible", self.css)
+        self.assertIn(".thinking-articles", self.css)
+        mobile = self.css[self.css.index("@media (max-width: 640px)") :]
+        self.assertIn(".thinking-grid", mobile)
+
 
 if __name__ == "__main__":
     unittest.main()
