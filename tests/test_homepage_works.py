@@ -100,6 +100,10 @@ class HomepageWorksTest(unittest.TestCase):
         self.assertIn(".thinking-grid {", self.css)
         self.assertIn(".thinking-feature:focus-visible", self.css)
         self.assertIn(".thinking-articles", self.css)
+        self.assertIn(".thinking-articles {", self.css)
+        articles_start = self.css.index(".thinking-articles {")
+        articles_end = self.css.index("}", articles_start)
+        self.assertIn("grid-column: 1 / -1;", self.css[articles_start:articles_end])
         mobile = self.css[self.css.index("@media (max-width: 640px)") :]
         self.assertIn(".thinking-grid", mobile)
 
