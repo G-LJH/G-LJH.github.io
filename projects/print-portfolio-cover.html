@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>作品集总册 · 刘佳慧</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/site.css" />
+  <style>
+    .portfolio-cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2.5rem 0 2rem;
+    }
+
+    .portfolio-cover-brand {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .portfolio-cover-main h1 {
+      margin: 1.25rem 0 0.75rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .portfolio-cover-main > p {
+      margin: 0;
+      max-width: 36rem;
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+    }
+
+    .portfolio-cover-list {
+      margin: 2.5rem 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+
+    .portfolio-cover-list li {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.98rem;
+    }
+
+    .portfolio-cover-list span:first-child {
+      color: var(--muted);
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 600;
+      min-width: 1.75rem;
+    }
+
+    .portfolio-cover-list strong {
+      flex: 1;
+      font-weight: 600;
+    }
+
+    .portfolio-cover-foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .portfolio-cover-foot a {
+      color: var(--accent-deep);
+      font-weight: 600;
+    }
+
+    @media print {
+      body::before {
+        display: none !important;
+      }
+
+      .shell {
+        padding: 0;
+      }
+
+      .portfolio-cover {
+        min-height: 0;
+        height: 257mm;
+        padding: 8mm 0 4mm;
+        break-after: page;
+      }
+
+      .portfolio-cover-main h1 {
+        font-size: 28pt;
+      }
+
+      .portfolio-cover-list li {
+        padding: 3.2mm 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <main class="shell">
+    <div class="portfolio-cover">
+      <div>
+        <p class="portfolio-cover-brand">刘佳慧 · AI Agent FDE / AI 产品</p>
+        <div class="portfolio-cover-main">
+          <h1>作品集</h1>
+          <p>按「问题 → 判断 → 结果 → 证据」整理的案例摘要。完整交互与 Demo 见站点；本册便于招聘与网申附件投递。</p>
+        </div>
+
+        <ol class="portfolio-cover-list">
+          <li><span>01</span><strong>Agent for You</strong><span>个人 Agent 工作台</span></li>
+          <li><span>02</span><strong>医生智能助手</strong><span>医疗交付 · 专科 Agent 矩阵</span></li>
+          <li><span>03</span><strong>BetterYeah AI 智能客服</strong><span>电商客服产品表达</span></li>
+          <li><span>04</span><strong>LLM 自动化测评</strong><span>FastGPT Agent Tester</span></li>
+          <li><span>05</span><strong>企业微信会话存档</strong><span>回调存储与检索</span></li>
+          <li><span>06</span><strong>xbotos 机器人监控</strong><span>运行态监控</span></li>
+          <li><span>07</span><strong>牛客 AI 面试教练</strong><span>岗位准备流水线</span></li>
+        </ol>
+      </div>
+
+      <div class="portfolio-cover-foot">
+        <span>站点 <a href="https://G-LJH.github.io">G-LJH.github.io</a></span>
+        <span>GitHub <a href="https://github.com/G-LJH">G-LJH</a></span>
+        <span>邮箱 <a href="mailto:18045034451@189.cn">18045034451@189.cn</a></span>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -46,6 +46,19 @@ class HomepageWorksTest(unittest.TestCase):
         self.assertNotIn(">05<", self.section)
         self.assertNotIn(">06<", self.section)
 
+    def test_each_project_card_states_the_problem_and_the_proof(self):
+        for phrase in [
+            "通过长期记忆持续理解用户",
+            "完成桌面可运行版本",
+            "助手而非 AI 医生",
+            "8 个专科助手接入企业微信",
+            "重新梳理 AI 客服的目标客群与产品价值",
+            "会干活 / 会成长 / 铺得开",
+            "用户智能体施压 + 裁判智能体评分",
+            "从人工天级压缩到自动分钟级",
+        ]:
+            self.assertIn(phrase, self.section)
+
     def test_agent_for_you_card_uses_the_same_light_style_as_other_cards(self):
         href_position = self.section.index('href="projects/agent-for-you/"')
         tag_start = self.section.rfind("<a", 0, href_position)

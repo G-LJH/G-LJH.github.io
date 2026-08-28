@@ -14,29 +14,28 @@ class HomepageCapabilitiesTest(unittest.TestCase):
         self.assertIn('id="capabilities"', html)
         self.assertLess(html.index('id="capabilities"'), html.index('id="experience"'))
 
-    def test_homepage_copy_uses_capability_led_agent_product_positioning(self):
+    def test_homepage_copy_uses_full_chain_ai_agent_builder_positioning(self):
         html = HOME.read_text(encoding="utf-8")
         for phrase in [
-            "把真实业务问题，转化为可执行、可验证、可复用的 Agent 产品方案。",
+            "Hangzhou · AI Agent Builder",
+            "产品理解 × 工程落地",
+            "站在业务、产品与工程之间，把真实问题做成可运行、可评测、可交付的 AI Agent。",
             "能力与方法",
             "不是工具清单，而是我解决问题的四种方式。",
-            "需求与场景拆解",
-            "Agent 产品设计",
-            "评测与效果优化",
-            "交付与标准化复制",
-            "需求分析 · 用户调研 · 流程建模 · 产品方案",
-            "Agent 工作流 · 知识库 · Prompt / SOP · Tool Use",
-            "评测集构建 · Bad Case 归因 · Prompt 调优 · 上线复盘",
-            "B 端交付 · 验收推进 · Skill 沉淀 · 1-N 复制",
-            "我擅长把模糊需求拆解为可落地的 Agent 产品方案",
-            "AI Native 学习与实践能力",
+            "需求与产品定义",
+            "Agent 工程实现",
+            "评测与效果迭代",
+            "部署交付与复制",
+            "需求分析 · 用户调研 · 工作流还原 · 产品方案",
+            "RAG / 知识库 · Tool Use · Context / Memory · API 接入",
+            "Testcase · Bad Case · LLM-as-a-Judge · 回归验证",
+            "Docker / 1Panel · 渠道集成 · SOP / Skill · 1-N 复制",
+            "我既能理解业务、做产品取舍",
+            "职业规划",
+            "成为贯通业务、产品、工程与交付的全链路 AI Agent Builder，独立负责从需求判断到上线迭代的完整闭环，并对最终业务结果负责。",
         ]:
             self.assertIn(phrase, html)
-        for superseded_phrase in [
-            "在业务场景、AI 能力边界与产品方案之间做连接",
-            "我擅长在业务场景、AI 能力边界、产品方案与研发实现之间做连接",
-        ]:
-            self.assertNotIn(superseded_phrase, html)
+        self.assertNotIn("Hangzhou · AI Agent FDE", html)
         self.assertEqual(html.count('class="tile capability-card"'), 4)
 
     def test_experience_copy_matches_updated_resume(self):
@@ -66,6 +65,8 @@ class HomepageCapabilitiesTest(unittest.TestCase):
         mobile = css[css.index("@media (max-width: 640px)") :]
         self.assertIn(".capabilities-grid {", mobile)
         self.assertIn("grid-template-columns: 1fr;", mobile)
+        for selector in [".hero-positioning {", ".career-plan {"]:
+            self.assertIn(selector, css)
 
 
 if __name__ == "__main__":

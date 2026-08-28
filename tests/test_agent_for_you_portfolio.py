@@ -6,14 +6,15 @@ from urllib.parse import unquote, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
+HOME = ROOT / "index.html"
 DETAIL = ROOT / "projects" / "agent-for-you" / "index.html"
 PROJECTS = ROOT / "projects" / "index.html"
 STYLES = ROOT / "css" / "site.css"
 FEATURE_IMAGES = {
-    "agent-for-you-main-panel.png": (1200, 700),
-    "agent-for-you-workspaces.png": (2500, 900),
-    "agent-for-you-meeting-setup.png": (1200, 700),
-    "agent-for-you-automations.png": (2500, 900),
+    "agent-for-you-chat.png": (2500, 1200),
+    "agent-for-you-workspaces.png": (2500, 1200),
+    "agent-for-you-meeting-workspace.png": (1400, 1000),
+    "agent-for-you-automations.png": (2500, 1200),
 }
 
 
@@ -68,21 +69,61 @@ def png_size(path):
 
 
 class AgentForYouPortfolioTest(unittest.TestCase):
-    def test_page_tells_ai_pm_story(self):
+    def test_homepage_introduces_the_personal_agent_in_one_compact_block(self):
+        html = HOME.read_text(encoding="utf-8")
+        for phrase in [
+            "面向个人日常工作的本地桌面 Agent",
+            "在后续任务中复用个人上下文",
+            "产品定位：",
+            "本地优先、长期记忆与能力可扩展",
+            "功能集成：",
+            "项目工作台、长期记忆、AI 会议、自动化、MCP、Computer Use 与任务录制",
+            "可运行落地：",
+            "React、Node.js 与 Electron",
+            "完成主要能力集成和桌面可运行版本",
+        ]:
+            self.assertIn(phrase, html)
+        self.assertEqual(html.count('class="project-block agent-overview-project"'), 1)
+        self.assertIn('class="result-list agent-overview-resume"', html)
+        self.assertNotIn('class="agent-overview-tags"', html)
+
+    def test_detail_page_leads_with_the_personal_agent_positioning(self):
         self.assertTrue(DETAIL.is_file())
         text = " ".join(parse(DETAIL).text)
         for phrase in [
-            "AI 产品经理",
-            "工作不发生在聊天框",
-            "Vibe Coding",
-            "基于 pi",
-            "三个关键产品决策",
+            "一个会在工作中持续了解你的个人 Agent",
+            "本地优先、可持续扩展的桌面个人 Agent",
+            "长期参与用户的日常工作",
+            "同一份用户记忆和项目上下文",
+            "本地优先",
+            "长期记忆",
+            "能力可扩展",
+            "桌面可运行版本",
         ]:
             self.assertIn(phrase, text)
 
-    def test_page_introduces_four_core_capabilities(self):
+    def test_detail_page_builds_from_memory_to_capabilities_and_productization(self):
         text = " ".join(parse(DETAIL).text)
-        for phrase in ["项目工作台", "工作区与长期记忆", "AI 会议", "定时任务"]:
+        for phrase in [
+            "真正的个人化，不是换一个人设",
+            "对话产生记忆，记忆进入下一次工作",
+            "同一个 Agent，围绕项目持续工作",
+            "在同一个底座上不断获得新的工作能力",
+            "MCP",
+            "Computer Use",
+            "任务录制器",
+            "可复用的 Skill",
+            "把高权限、长生命周期 Agent 做成可控制的桌面产品",
+            "React",
+            "Node.js Studio Server",
+            "独立的 Pi Agent 进程",
+            "Electron",
+        ]:
+            self.assertIn(phrase, text)
+
+    def test_page_keeps_four_existing_work_capabilities(self):
+        text = " ".join(parse(DETAIL).text)
+        for phrase in ["项目工作台", "长期记忆", "AI 会议", "定时任务"]:
             self.assertIn(phrase, text)
 
     def test_feature_grid_uses_four_compact_linked_screenshots(self):
@@ -118,8 +159,8 @@ class AgentForYouPortfolioTest(unittest.TestCase):
 
     def test_projects_list_uses_new_positioning(self):
         text = " ".join(parse(PROJECTS).text)
-        self.assertIn("持续工作的本地个人 Agent", text)
-        self.assertIn("长期记忆、会议与定时任务", text)
+        self.assertIn("一个会在工作中持续了解你的个人 Agent", text)
+        self.assertIn("本地优先、长期记忆、能力可扩展", text)
 
     def test_styles_define_compact_desktop_and_mobile_layouts(self):
         css = STYLES.read_text(encoding="utf-8")
